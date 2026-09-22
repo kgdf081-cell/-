@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>鬼畜 —— 中文互联网剪辑亚文化图鉴</title>
+<meta name="description" content="一份关于中文互联网鬼畜亚文化的单页图鉴：定义、起源、技法、素材、流派、传播生态、争议与现状。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0d12'/%3E%3Ccircle cx='30' cy='34' r='13' fill='none' stroke='%232fd0f0' stroke-width='5'/%3E%3Cpath d='M39 25 L52 12 M40 12 h12 v12' stroke='%23ff4d7d' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#0a0d12;
+    --bg-2:#0e131a;
+    --panel:#141b24;
+    --panel-2:#1a2330;
+    --line:#243040;
+    --ink:#e9eef5;
+    --ink-2:#aab6c4;
+    --muted:#7d8a99;
+    --cyan:#2fd0f0;
+    --cyan-soft:rgba(47,208,240,.12);
+    --pink:#ff4d7d;
+    --pink-soft:rgba(255,77,125,.12);
+    --lime:#8ee04a;
+    --radius:14px;
+    --maxw:1080px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Source Han Sans SC","Noto Sans SC",system-ui,-apple-system,"Segoe UI",sans-serif;
+    line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  a{color:inherit}
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* ---------- notice + nav ---------- */
+  .notice{
+    background:linear-gradient(90deg,#0f2b3a,#123043 40%,#3a1030);
+    color:#cfe6f0;font-size:13px;text-align:center;padding:8px 20px;
+    border-bottom:1px solid var(--line);
+  }
+  .notice b{color:var(--cyan);font-weight:600}
+
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,13,18,.84);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    width:100%;max-width:var(--maxw);margin:0 auto;padding:12px 24px;
+    display:flex;align-items:center;gap:18px;
+  }
+  .brand{font-weight:800;letter-spacing:.08em;white-space:nowrap;font-size:15px;text-decoration:none;color:var(--ink)}
+  .brand span{color:var(--pink)}
+  .nav-links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin-left:auto}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{
+    font-size:13px;color:var(--ink-2);text-decoration:none;padding:6px 11px;
+    border-radius:999px;white-space:nowrap;transition:color .18s,background .18s;
+  }
+  .nav-links a:hover{color:var(--ink);background:#182230}
+  .nav-links a.active{color:#04121a;background:var(--cyan);font-weight:600}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:84px 0 70px;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:-25% -10% auto -10%;height:115%;pointer-events:none;
+    background:
+      radial-gradient(46% 42% at 18% 26%,rgba(47,208,240,.24),transparent 64%),
+      radial-gradient(42% 40% at 84% 18%,rgba(255,77,125,.20),transparent 66%),
+      radial-gradient(50% 46% at 60% 92%,rgba(142,224,74,.12),transparent 68%);
+    filter:blur(8px);
+  }
+  .hero .wrap{position:relative}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.2em;
+    color:var(--cyan);border:1px solid rgba(47,208,240,.35);padding:5px 13px;
+    border-radius:999px;margin-bottom:26px;
+  }
+  .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pink)}
+
+  h1{
+    font-size:clamp(54px,13vw,124px);line-height:.95;margin:0 0 16px;
+    font-weight:800;letter-spacing:.06em;
+    background:linear-gradient(180deg,#ffffff 6%,#9fe8f8 44%,#2fd0f0 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-sub{font-size:clamp(15px,2.4vw,18.5px);color:var(--ink-2);max-width:680px;margin:0}
+  .hero-sub b{color:var(--cyan);font-weight:600}
+
+  /* timeline strip decoration */
+  .art-panel{
+    margin-top:32px;border:1px solid var(--line);border-radius:16px;overflow:hidden;
+    background:#0d1219;position:relative;
+  }
+  .art-panel svg{display:block;width:100%;height:auto}
+  .art-cap{
+    font-size:12.5px;color:var(--muted);padding:10px 16px;
+    border-top:1px solid var(--line);background:rgba(255,255,255,.015);
+  }
+  .diagram{
+    margin-top:28px;border:1px solid var(--line);border-radius:14px;
+    background:#0d1219;overflow-x:auto;
+  }
+  .diagram svg{display:block;width:100%;min-width:680px;height:auto}
+  .diagram + .diagram-cap{margin-top:10px}
+  .diagram-cap{font-size:12.5px;color:var(--muted)}
+
+  .strip{
+    display:flex;align-items:flex-end;gap:3px;height:34px;margin-top:34px;
+    overflow:hidden;mask-image:linear-gradient(90deg,#000 60%,transparent);
+    -webkit-mask-image:linear-gradient(90deg,#000 60%,transparent);
+  }
+  .strip i{
+    display:block;width:2px;background:linear-gradient(180deg,var(--cyan),transparent);
+    opacity:.5;border-radius:2px;
+  }
+
+  .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+  .tag{
+    font-size:12.5px;color:var(--ink-2);border:1px solid var(--line);
+    background:var(--panel);border-radius:999px;padding:5px 13px;
+  }
+  .hero-meta{margin-top:34px;display:flex;flex-wrap:wrap;gap:26px;font-size:13px;color:var(--muted)}
+  .hero-meta b{display:block;color:var(--ink);font-size:19px;font-weight:700}
+
+  /* ---------- sections ---------- */
+  section{padding:74px 0;border-top:1px solid var(--line)}
+  section.alt{background:var(--bg-2)}
+  .sec-no{font-size:12px;letter-spacing:.26em;color:var(--pink);margin-bottom:10px;font-variant-numeric:tabular-nums}
+  h2{font-size:clamp(25px,4.2vw,38px);margin:0 0 12px;font-weight:700}
+  h2 em{font-style:normal;color:var(--cyan)}
+  .sec-head{margin-bottom:34px}
+  .lead{color:var(--ink-2);max-width:740px;margin:0}
+  h3{font-size:17px;margin:0 0 8px;font-weight:600}
+  p.para{color:var(--ink-2);max-width:780px}
+  p.para + p.para{margin-top:14px}
+  .hl{color:var(--ink);font-weight:600}
+  .hl-c{color:var(--cyan)}
+  .hl-p{color:var(--pink)}
+
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:repeat(2,1fr)}
+
+  .card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;transition:border-color .2s,transform .2s;
+  }
+  .card:hover{border-color:rgba(47,208,240,.4);transform:translateY(-2px)}
+  .card .kicker{font-size:12px;letter-spacing:.14em;color:var(--pink);margin-bottom:8px}
+  .card p{margin:0;color:var(--ink-2);font-size:14.5px}
+
+  /* ---------- timeline ---------- */
+  .timeline{position:relative;padding-left:30px}
+  .timeline::before{
+    content:"";position:absolute;left:7px;top:6px;bottom:6px;width:1px;
+    background:linear-gradient(180deg,var(--cyan),rgba(255,77,125,.55),transparent);
+  }
+  .tl-item{position:relative;padding:0 0 30px}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-item::before{
+    content:"";position:absolute;left:-30px;top:9px;width:15px;height:15px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--cyan);
+  }
+  .tl-year{font-size:13px;letter-spacing:.08em;color:var(--lime);font-weight:600;font-variant-numeric:tabular-nums;margin-bottom:3px}
+  .tl-item h3{margin:0 0 5px}
+  .tl-item p{margin:0;color:var(--ink-2);font-size:14.5px;max-width:700px}
+
+  /* ---------- technique cards ---------- */
+  .tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+  .tech{
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;
+    position:relative;
+  }
+  .tech .num{
+    font-size:11.5px;letter-spacing:.16em;color:var(--muted);font-variant-numeric:tabular-nums;
+  }
+  .tech h3{margin:6px 0 6px;font-size:16px}
+  .tech p{margin:0;color:var(--ink-2);font-size:14px}
+  .tech .bar{
+    position:absolute;left:18px;right:18px;bottom:0;height:2px;
+    background:linear-gradient(90deg,var(--cyan),transparent);opacity:.5;border-radius:2px;
+  }
+
+  /* ---------- 鬼畜模拟器 ---------- */
+  .sim{
+    margin-top:28px;background:linear-gradient(160deg,var(--panel-2),var(--panel));
+    border:1px solid var(--line);border-radius:var(--radius);padding:24px;
+  }
+  .sim-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .sim input{
+    flex:1 1 240px;min-width:180px;background:#0d131b;border:1px solid var(--line);
+    border-radius:10px;color:var(--ink);padding:11px 14px;font-size:14.5px;font-family:inherit;
+  }
+  .sim input:focus{outline:none;border-color:rgba(47,208,240,.6);box-shadow:0 0 0 3px var(--cyan-soft)}
+  button.btn{
+    font-family:inherit;font-size:14px;cursor:pointer;border:none;border-radius:10px;
+    padding:11px 20px;background:var(--cyan);color:#04121a;font-weight:600;
+    transition:filter .18s,transform .18s;
+  }
+  button.btn:hover{filter:brightness(1.1)}
+  button.btn:active{transform:translateY(1px)}
+  button.btn.ghost{background:transparent;color:var(--ink-2);border:1px solid var(--line);font-weight:400}
+  button.btn.ghost:hover{color:var(--ink);border-color:rgba(255,77,125,.5);filter:none}
+  button.btn:disabled{opacity:.45;cursor:not-allowed;filter:none}
+
+  .sim-stage{
+    margin-top:18px;height:150px;border-radius:12px;background:#080c11;
+    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
+    overflow:hidden;position:relative;
+  }
+  .sim-stage::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(60% 60% at 50% 50%,rgba(47,208,240,.10),transparent 70%);
+  }
+  #simWord{
+    position:relative;z-index:1;font-size:clamp(20px,4.6vw,34px);font-weight:800;
+    letter-spacing:.04em;color:var(--ink);transition:transform .06s,color .06s,opacity .06s;
+  }
+  #simWord.hit{transform:scale(1.14);color:var(--cyan)}
+  #simWord.boom{color:var(--pink);transform:scale(1.3)}
+  .sim-read{display:flex;gap:22px;flex-wrap:wrap;margin-top:14px;font-size:12.5px;color:var(--muted)}
+  .sim-read b{color:var(--ink);font-variant-numeric:tabular-nums;font-size:15px;display:block}
+  .sim-tip{font-size:12.5px;color:var(--muted);margin-top:10px}
+
+  /* ---------- flow ---------- */
+  .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .flow.four{grid-template-columns:repeat(4,1fr)}
+  .flow.one{grid-template-columns:1fr}
+  .flow .step{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .flow .step span{display:block;font-size:11.5px;letter-spacing:.14em;color:var(--muted);margin-bottom:6px}
+  .flow .step h3{font-size:14.5px;margin:0 0 5px}
+  .flow .step p{margin:0;font-size:13px;color:var(--ink-2)}
+
+  /* ---------- glossary ---------- */
+  .glossary-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:22px}
+  .glossary-bar input{
+    flex:1 1 260px;min-width:200px;background:var(--panel);border:1px solid var(--line);
+    border-radius:10px;color:var(--ink);padding:11px 14px;font-size:14.5px;font-family:inherit;
+  }
+  .glossary-bar input:focus{outline:none;border-color:rgba(47,208,240,.6);box-shadow:0 0 0 3px var(--cyan-soft)}
+  .glossary-bar .count{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .gloss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+  .term{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;transition:border-color .2s}
+  .term:hover{border-color:rgba(255,77,125,.45)}
+  .term dt{font-weight:700;font-size:15.5px;margin-bottom:2px}
+  .term dt small{font-weight:400;color:var(--muted);font-size:12px;margin-left:6px}
+  .term dd{margin:0;color:var(--ink-2);font-size:14px}
+  .term.hide{display:none}
+  .empty-tip{display:none;color:var(--muted);font-size:14px;padding:8px 2px}
+  .empty-tip.show{display:block}
+
+  /* ---------- split / list / callout ---------- */
+  .split{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:start}
+  .list{list-style:none;margin:0;padding:0}
+  .list li{position:relative;padding:0 0 16px 22px;color:var(--ink-2);font-size:14.5px}
+  .list li::before{content:"";position:absolute;left:0;top:10px;width:8px;height:2px;background:var(--cyan)}
+  .list li b{color:var(--ink);font-weight:600}
+
+  .menu{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .menu-item{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.07)}
+  .menu-item:last-of-type{border-bottom:none}
+  .dish{color:var(--ink);font-weight:600;font-size:14.5px;white-space:nowrap}
+  .dots{flex:1;min-width:12px;border-bottom:1px dotted var(--line);transform:translateY(-4px)}
+  .price{color:var(--cyan);font-size:13px;white-space:nowrap}
+  .menu-note{margin-top:12px;font-size:12.5px;color:var(--muted);line-height:1.7}
+
+  .callout{background:var(--cyan-soft);border:1px solid rgba(47,208,240,.28);border-radius:var(--radius);padding:22px}
+  .callout.pink{background:var(--pink-soft);border-color:rgba(255,77,125,.3)}
+  .callout h3{color:var(--cyan)}
+  .callout.pink h3{color:var(--pink)}
+  .callout p{margin:0;color:var(--ink-2);font-size:14.5px}
+  .callout p + p{margin-top:12px}
+
+  /* ---------- case link ---------- */
+  .case-card{
+    background:linear-gradient(150deg,rgba(200,57,47,.16),var(--panel));
+    border:1px solid rgba(200,57,47,.35);border-radius:var(--radius);padding:24px;
+  }
+  .case-card .kicker{font-size:12px;letter-spacing:.14em;color:#e0a04a;margin-bottom:8px}
+  .case-link{
+    display:inline-flex;align-items:center;gap:8px;margin-top:16px;
+    font-size:14px;color:var(--cyan);text-decoration:none;
+    border-bottom:1px solid rgba(47,208,240,.4);padding-bottom:2px;
+  }
+  .case-link:hover{color:#fff;border-color:#fff}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);background:#070a0e;padding:46px 0 60px;color:var(--muted);font-size:13px}
+  .foot-top{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:flex-end}
+  .foot-brand{font-size:22px;font-weight:800;letter-spacing:.06em;color:var(--ink)}
+  .foot-brand span{color:var(--cyan)}
+  footer p{margin:18px 0 0;max-width:760px}
+  footer a{color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(47,208,240,.35)}
+
+  /* ---------- reveal / to top ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+  .reveal.in{opacity:1;transform:none}
+  #toTop{
+    position:fixed;right:20px;bottom:24px;z-index:60;width:44px;height:44px;border-radius:50%;
+    border:1px solid var(--line);background:rgba(20,27,36,.94);color:var(--ink-2);
+    font-size:16px;cursor:pointer;opacity:0;pointer-events:none;
+    transition:opacity .25s,border-color .25s,color .25s;
+  }
+  #toTop.show{opacity:1;pointer-events:auto}
+  #toTop:hover{border-color:rgba(47,208,240,.6);color:var(--cyan)}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .card:hover{transform:none}
+    #simWord{transition:none}
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:960px){
+    .flow,.flow.four{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:900px){
+    .g3{grid-template-columns:1fr 1fr}
+    .split{grid-template-columns:1fr;gap:26px}
+  }
+  @media (max-width:640px){
+    .wrap,.nav-inner{padding:0 18px}
+    .nav-inner{padding:10px 18px}
+    .hero{padding:62px 0 52px}
+    section{padding:56px 0}
+    .g3,.g2{grid-template-columns:1fr}
+    .flow,.flow.four{grid-template-columns:1fr}
+    .card,.callout,.sim,.case-card{padding:18px}
+    .foot-top{display:block}
+    .menu-item{display:block;padding:10px 0}
+    .dots{display:none}
+    .dish{display:block;white-space:normal}
+    .price{display:block;font-size:12.5px;margin-top:2px}
+  }
+</style>
+</head>
+<body>
+
+<div class="notice">网络亚文化科普 · 对公众人物素材的讨论均属<b>评论性引用</b> · 本页不含任何影像素材</div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">鬼畜<span>图鉴</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="页面目录">
+      <a href="#define">定义</a>
+      <a href="#origin">起源</a>
+      <a href="#tech">技法</a>
+      <a href="#material">素材</a>
+      <a href="#family">流派</a>
+      <a href="#case">案例</a>
+      <a href="#dict">词典</a>
+      <a href="#ecology">生态</a>
+      <a href="#dispute">争议</a>
+      <a href="#now">现状</a>
+      <a href="#diner">会员制餐厅</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============== HERO ============== -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Chinese Video Remix Culture · since 2008</div>
+      <h1>鬼 畜</h1>
+      <p class="hero-sub">
+        一种把真人影像拆成零件、再按节拍重新拼回去的创作类型。
+        它诞生于日本弹幕站，在中国视频站长成了
+        <b>规模最大、参与人数最多的二创亚文化</b>之一。
+        这一页讲的是它的来路、手法、规矩，以及它为什么退潮。
+      </p>
+
+      <div class="art-panel">
+        <svg viewBox="0 0 1000 300" role="img" aria-label="示意图：一条剪辑时间轴，素材片段按节拍对齐，下方是音频波形。">
+          <defs>
+            <linearGradient id="gClipA" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#2fd0f0" stop-opacity=".42"/>
+              <stop offset="1" stop-color="#2fd0f0" stop-opacity=".14"/>
+            </linearGradient>
+            <linearGradient id="gClipB" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#ff4d7d" stop-opacity=".42"/>
+              <stop offset="1" stop-color="#ff4d7d" stop-opacity=".14"/>
+            </linearGradient>
+            <linearGradient id="gWave" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#2fd0f0" stop-opacity=".15"/>
+              <stop offset=".5" stop-color="#2fd0f0" stop-opacity=".85"/>
+              <stop offset="1" stop-color="#ff4d7d" stop-opacity=".35"/>
+            </linearGradient>
+            <pattern id="pGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M40 0V40M0 40H40" fill="none" stroke="#151f2b" stroke-width="1"/>
+            </pattern>
+            <pattern id="pTickS" width="40" height="16" patternUnits="userSpaceOnUse">
+              <path d="M0 16V6" stroke="#2b3b4d" stroke-width="1"/>
+            </pattern>
+            <pattern id="pTickL" width="160" height="16" patternUnits="userSpaceOnUse">
+              <path d="M0 16V0" stroke="#3c5570" stroke-width="1"/>
+            </pattern>
+          </defs>
+
+          <rect width="1000" height="300" fill="#0d1219"/>
+          <rect x="40" y="40" width="920" height="220" fill="url(#pGrid)" opacity=".9"/>
+
+          <line x1="40" y1="56" x2="960" y2="56" stroke="#243040" stroke-width="1"/>
+          <rect x="40" y="40" width="920" height="16" fill="url(#pTickS)"/>
+          <rect x="40" y="40" width="920" height="16" fill="url(#pTickL)"/>
+
+          <g>
+            <rect x="40"  y="92" width="120" height="58" rx="8" fill="url(#gClipA)"/>
+            <rect x="160" y="92" width="80"  height="58" rx="8" fill="url(#gClipA)"/>
+            <rect x="240" y="92" width="160" height="58" rx="8" fill="url(#gClipA)"/>
+            <rect x="400" y="92" width="40"  height="58" rx="8" fill="url(#gClipB)"/>
+            <rect x="440" y="92" width="120" height="58" rx="8" fill="url(#gClipA)"/>
+            <rect x="560" y="92" width="200" height="58" rx="8" fill="url(#gClipA)"/>
+            <rect x="760" y="92" width="80"  height="58" rx="8" fill="url(#gClipB)"/>
+            <rect x="840" y="92" width="120" height="58" rx="8" fill="url(#gClipA)"/>
+          </g>
+          <g fill="#0d1219" opacity=".55">
+            <rect x="46"  y="98" width="20" height="46" rx="4"/>
+            <rect x="246" y="98" width="20" height="46" rx="4"/>
+            <rect x="446" y="98" width="20" height="46" rx="4"/>
+            <rect x="566" y="98" width="20" height="46" rx="4"/>
+            <rect x="846" y="98" width="20" height="46" rx="4"/>
+          </g>
+
+          <path d="M43 207V243M83 193V257M123 213V237M163 185V265M203 203V247M243 177V273M283 209V241M323 189V261M363 199V251M403 171V279M443 205V245M483 181V269M523 211V239M563 195V255M603 183V267M643 201V249M683 175V275M723 207V243M763 191V259M803 197V253M843 179V271M883 205V245M923 187V263"
+                fill="none" stroke="url(#gWave)" stroke-width="6" stroke-linecap="round"/>
+
+          <line x1="560" y1="40" x2="560" y2="284" stroke="#ff4d7d" stroke-width="1.5" opacity=".85"/>
+          <polygon points="560,34 553,46 567,46" fill="#ff4d7d"/>
+          <line x1="40" y1="284" x2="960" y2="284" stroke="#243040" stroke-width="1"/>
+        </svg>
+        <div class="art-cap">节拍尺 · 素材块 · 波形 · 播放头 —— 鬼畜的全部工作都发生在这三条水平线上</div>
+      </div>
+
+      <div class="strip" id="strip" aria-hidden="true"></div>
+
+      <div class="hero-tags">
+        <span class="tag">音MAD</span>
+        <span class="tag">人力VOCALOID</span>
+        <span class="tag">全明星</span>
+        <span class="tag">对轴</span>
+        <span class="tag">素材</span>
+        <span class="tag">弹幕</span>
+      </div>
+
+      <div class="hero-meta">
+        <div><b>2006</b>日本源头</div>
+        <div><b>2015</b>一次大规模破圈</div>
+        <div><b>7</b>种核心技法</div>
+        <div><b>18</b>条行话</div>
+        <div><b>1</b>家会员制餐厅</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== 01 定义 ============== -->
+  <section id="define">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">01 / 定义</div>
+        <h2>先说清楚，<em>什么叫鬼畜</em></h2>
+        <p class="lead">
+          它不是一个题材，而是一种<span class="hl-c">剪辑语法</span>。
+          判断一个作品是不是鬼畜，看的不是它用了谁，而是它有没有依赖节奏化的重复。
+        </p>
+      </div>
+
+      <p class="para reveal">
+        词源来自日语「<span class="hl">鬼畜</span>」（きちく），本义是残忍无情。
+        在日本网络文化里，它被引申为「非人的强度」，比如把难到变态的游戏称作「鬼畜ゲーム」。
+        到了视频领域，这个词专门用来形容一种手法：<span class="hl">把同一小段画面高速重复、加速、拼接，密集地砸向观众</span>。
+        中文互联网直接把这套说法搬运了过来。
+      </p>
+      <p class="para reveal">
+        所以鬼畜的本质不是「恶搞某人」，而是<span class="hl-p">对时间轴的重新分配</span>：
+        一段三秒的素材，可以被拉成三分钟，也可以被压缩成三个节拍。
+        素材里的人是谁其实次要，重要的是他睁眼的那一帧能不能卡在鼓点上。
+      </p>
+
+      <div class="grid g3" style="margin-top:32px">
+        <div class="card reveal">
+          <div class="kicker">手法层</div>
+          <h3>重复与对轴</h3>
+          <p>把画面切成最小单位，再按音乐节拍重新排列。
+             同一帧画面在一首曲子里出现二十次，是这个类型最基本的样子。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">素材层</div>
+          <h3>真人成为零件</h3>
+          <p>影视剧、发布会、采访、广告里的真人影像被拆解为可复用的镜头。
+             一个人可以既是主角，也是别人作品里的一枚音效。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">社区层</div>
+          <h3>弹幕与素材崇拜</h3>
+          <p>观众用弹幕同步欢呼、报点位、刷同一个梗。
+             某些素材因此获得了跨作品的公共地位，成为「万能素材」。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 02 起源 ============== -->
+  <section id="origin" class="alt">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">02 / 溯源</div>
+        <h2>二十年，<em>一条时间线</em></h2>
+        <p class="lead">年份为大致分期，不同社区的记法略有出入。</p>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-year">2006 – 2007 · 日本</div>
+          <h3>源头：弹幕站上的音MAD</h3>
+          <p>Niconico 上出现大量以音MAD为核心的高速剪辑作品。「鬼畜」被借用来命名这一类
+             高频重复、节奏暴烈的视频，并迅速形成固定的观看礼仪与技术流派。</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">2008 – 2010 · 搬运期</div>
+          <h3>名词先于作品到达</h3>
+          <p>中文视频站出现搬运与翻译的日本鬼畜作品。观众先学会说「鬼畜」这个词，
+             再慢慢理解它指代的是什么手法。</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">2009 – 2011 · 落地</div>
+          <h3>从零散投稿到固定分区</h3>
+          <p>弹幕视频站上线后，鬼畜从零散投稿变成有归属的固定门类。
+             中文创作者开始寻找本土素材，配音演员葛平与早期动画素材在这一时期被反复使用，
+             也留下了「鬼畜鼻祖」这类说法。</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">2012 – 2015 · 本土化</div>
+          <h3>素材库换血</h3>
+          <p>来源从动漫转向现实世界：老电视剧、地方广告、新闻采访、综艺片段。
+             「全明星」形态成熟——把多位素材人物剪进同一部作品，成为社区最爱的形式。</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">2015 · 破圈</div>
+          <h3>一首歌把整个分区推给大众</h3>
+          <p>一段发布会上的英文发言被二创成歌曲，成为鬼畜区最广为人知的作品之一。
+             从那之后，鬼畜不再只是圈内人的爱好，而开始出现在音乐榜、晚会与线下场合。</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">2016 – 2018 · 黄金期</div>
+          <h3>技术成熟，形态定型</h3>
+          <p>老牌作者与新作者同时高产，调音与混音水平接近专业制作，
+             人力VOCALOID成为中文鬼畜的技术天花板。这段时间产出的作品，
+             后来大多成了被反复回看的老片。</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">2019 · 争议期</div>
+          <h3>边界问题第一次被摆上台面</h3>
+          <p>以流量明星为素材的大规模二创引发反弹，随之而来的是律师函、
+             内容下架与平台规则收紧。创作自由与人格权之间的界线，
+             在这一年被整个社区反复讨论。</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">2020 之后 · 退潮</div>
+          <h3>从主流娱乐退回垂类爱好</h3>
+          <p>分区调整、审核趋严、观众审美迁移，加上一批核心作者停更或转型，
+             新作品产出明显下滑。鬼畜仍然存在，但不再是视频站的门面。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 03 技法 ============== -->
+  <section id="tech">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">03 / 技法</div>
+        <h2>它是<em>怎么做出来的</em></h2>
+        <p class="lead">
+          七种手法叠在一起，构成了这个类型的全部工具箱。
+          其中「对轴」是门槛，也是区分业余与专业的分水岭。
+        </p>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech reveal"><div class="num">01</div><h3>重复</h3><p>最核心的一招。同一帧画面连续出现，次数本身就是笑点，也是节奏的来源。</p><div class="bar"></div></div>
+        <div class="tech reveal"><div class="num">02</div><h3>变速与倒放</h3><p>把素材加快、放慢或倒着放。一个正常的动作因此变得荒诞，发音也会被扭曲成新的音节。</p><div class="bar"></div></div>
+        <div class="tech reveal"><div class="num">03</div><h3>对轴</h3><p>把每一次画面切换精确卡在音乐节拍上。几千次剪辑里只要有几帧偏差，整段就会散掉。</p><div class="bar"></div></div>
+        <div class="tech reveal"><div class="num">04</div><h3>调音</h3><p>调整真人语音的音高与时长，让它唱出原本不存在的旋律。音准越准，观众越震撼。</p><div class="bar"></div></div>
+        <div class="tech reveal"><div class="num">05</div><h3>人力 VOCALOID</h3><p>调音的极致形态：完全用真人语音拼出一整首歌。这是中文鬼畜公认的技术上限。</p><div class="bar"></div></div>
+        <div class="tech reveal"><div class="num">06</div><h3>音效叠加</h3><p>在动作节点上打进固定的音效包。这些音效本身会脱离作品单独流传，变成新的梗。</p><div class="bar"></div></div>
+        <div class="tech reveal"><div class="num">07</div><h3>抠像与空耳</h3><p>把人从原背景里抠出来放进新场景；或者把听不懂的发音直接当作歌词写成字幕。</p><div class="bar"></div></div>
+      </div>
+
+      <div class="diagram reveal">
+        <svg viewBox="0 0 1000 280" role="img" aria-label="对轴示意图：上排的片段与节拍线错开，下排的片段精确落在节拍线上。">
+          <defs>
+            <linearGradient id="gOff" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#ff4d7d" stop-opacity=".5"/>
+              <stop offset="1" stop-color="#ff4d7d" stop-opacity=".16"/>
+            </linearGradient>
+            <linearGradient id="gOn" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#2fd0f0" stop-opacity=".5"/>
+              <stop offset="1" stop-color="#2fd0f0" stop-opacity=".16"/>
+            </linearGradient>
+          </defs>
+
+          <rect width="1000" height="280" fill="#0d1219"/>
+
+          <g stroke="#2a3a4d" stroke-width="1" stroke-dasharray="4 6">
+            <line x1="140" y1="58" x2="140" y2="252"/>
+            <line x1="275" y1="58" x2="275" y2="252"/>
+            <line x1="410" y1="58" x2="410" y2="252"/>
+            <line x1="545" y1="58" x2="545" y2="252"/>
+            <line x1="680" y1="58" x2="680" y2="252"/>
+            <line x1="815" y1="58" x2="815" y2="252"/>
+            <line x1="950" y1="58" x2="950" y2="252"/>
+          </g>
+
+          <line x1="120" y1="58" x2="975" y2="58" stroke="#243040" stroke-width="1"/>
+          <g fill="#8b98a7" font-size="19" text-anchor="middle">
+            <text x="140" y="46">1</text>
+            <text x="275" y="46">2</text>
+            <text x="410" y="46">3</text>
+            <text x="545" y="46">4</text>
+            <text x="680" y="46">5</text>
+            <text x="815" y="46">6</text>
+            <text x="950" y="46">7</text>
+          </g>
+
+          <text x="20" y="111" fill="#ff4d7d" font-size="19" font-weight="600">未对轴</text>
+          <g fill="url(#gOff)">
+            <rect x="160" y="80"  width="95" height="46" rx="6"/>
+            <rect x="295" y="80"  width="95" height="46" rx="6"/>
+            <rect x="430" y="80"  width="95" height="46" rx="6"/>
+            <rect x="565" y="80"  width="95" height="46" rx="6"/>
+            <rect x="700" y="80"  width="95" height="46" rx="6"/>
+            <rect x="835" y="80"  width="95" height="46" rx="6"/>
+          </g>
+          <g stroke="#ff4d7d" stroke-width="1.5" opacity=".7">
+            <line x1="140" y1="72" x2="140" y2="84"/>
+            <line x1="160" y1="72" x2="160" y2="84"/>
+            <line x1="140" y1="78" x2="160" y2="78"/>
+          </g>
+          <text x="168" y="70" fill="#ff4d7d" font-size="15" opacity=".9">偏差</text>
+
+          <line x1="120" y1="152" x2="975" y2="152" stroke="#1b2531" stroke-width="1"/>
+
+          <text x="20" y="210" fill="#2fd0f0" font-size="19" font-weight="600">已对轴</text>
+          <g fill="url(#gOn)">
+            <rect x="140" y="180" width="95" height="46" rx="6"/>
+            <rect x="275" y="180" width="95" height="46" rx="6"/>
+            <rect x="410" y="180" width="95" height="46" rx="6"/>
+            <rect x="545" y="180" width="95" height="46" rx="6"/>
+            <rect x="680" y="180" width="95" height="46" rx="6"/>
+            <rect x="815" y="180" width="95" height="46" rx="6"/>
+          </g>
+        </svg>
+      </div>
+      <p class="diagram-cap reveal">同一批素材、同一首曲子，唯一区别是片段有没有落在节拍线上。上面那一排，观众会觉得「哪里不对劲」但说不出原因。</p>
+
+      <!-- 模拟器 -->
+      <div class="sim reveal">
+        <h3 style="margin-bottom:6px">试试最基础的那一招</h3>
+        <p style="margin:0 0 16px;color:var(--ink-2);font-size:14.5px">
+          输入任意一句话，看它如何在重复与加速中被消耗掉。
+          这就是鬼畜的原始形态——不需要任何素材，只靠时间轴。
+        </p>
+        <div class="sim-row">
+          <input id="simInput" type="text" maxlength="8" value="鬼畜" aria-label="输入要重复的词">
+          <button class="btn" id="simStart" type="button">开始重复</button>
+          <button class="btn ghost" id="simReset" type="button">复位</button>
+        </div>
+        <div class="sim-stage" aria-live="polite"><div id="simWord">鬼畜</div></div>
+        <div class="sim-read">
+          <div>当前节奏<b id="simBpm">—</b></div>
+          <div>已重复<b id="simCount">0</b></div>
+          <div>状态<b id="simState">待机</b></div>
+        </div>
+        <div class="sim-tip">从 420 毫秒一拍起步，逐拍加速到 70 毫秒，共 32 拍。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 04 素材 ============== -->
+  <section id="material" class="alt">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">04 / 素材</div>
+        <h2>什么样的画面<em>会被选中</em></h2>
+        <p class="lead">
+          素材不是随便挑的。能被一个社区反复用上十年的画面，
+          通常同时满足下面三个条件。
+        </p>
+      </div>
+
+      <div class="grid g3">
+        <div class="card reveal">
+          <div class="kicker">条件一</div>
+          <h3>表情足够夸张</h3>
+          <p>愤怒、震惊、大笑——情绪强度越高的镜头，被放大和重复时的喜剧张力越大。
+             平静的画面做不出鬼畜。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">条件二</div>
+          <h3>台词足够短促</h3>
+          <p>三到五个字，发音清晰，尾音干脆。这种句子可以被切碎成音节，也方便被调音成旋律。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">条件三</div>
+          <h3>身份足够反差</h3>
+          <p>越严肃的身份配上越荒诞的处理，效果越强。
+             正经场合的一句话被剪成歌，是这套语法最经典的配方。</p>
+        </div>
+      </div>
+
+      <div class="split" style="margin-top:38px">
+        <div class="reveal">
+          <h3 style="font-size:19px;margin-bottom:14px">素材是从哪来的</h3>
+          <ul class="list">
+            <li><b>老电视剧与电影。</b>流传最广的一类。台词自带戏剧性，观众还有共同记忆。</li>
+            <li><b>发布会与商业活动。</b>发言人口音、语速、神态都极具辨识度，且影像公开可查。</li>
+            <li><b>新闻采访与民生节目。</b>真实感强，素人一句话就能成为十年不衰的素材。</li>
+            <li><b>综艺与广告。</b>节奏快、画面碎，天然适合被拆解。</li>
+            <li><b>动画与游戏。</b>声音干净、角色符号化，是音MAD最传统的来源。</li>
+            <li><b>网络直播与短视频。</b>近十年的新来源，但生命周期普遍更短。</li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h3 style="font-size:19px;margin-bottom:14px">一个素材的五段人生</h3>
+          <div class="flow one">
+            <div class="step"><span>阶段 01</span><h3>被发掘</h3><p>某个冷门片段被作者发现，第一次出现在作品里。</p></div>
+            <div class="step"><span>阶段 02</span><h3>被复用</h3><p>其他作者跟进，同一素材出现在几十个作品中。</p></div>
+            <div class="step"><span>阶段 03</span><h3>万能素材</h3><p>脱离原作品独立流通，可以被塞进任何语境。</p></div>
+            <div class="step"><span>阶段 04</span><h3>过度消耗</h3><p>用得太多，观众产生疲劳，作者开始回避。</p></div>
+            <div class="step"><span>阶段 05</span><h3>沉淀为记忆</h3><p>只剩重看与怀旧，偶尔被当作时代的注脚提起。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 05 流派 ============== -->
+  <section id="family">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">05 / 流派</div>
+        <h2>同一个根，<em>长出了几枝</em></h2>
+      </div>
+
+      <div class="grid g2">
+        <div class="card reveal">
+          <div class="kicker">音乐性优先</div>
+          <h3>音MAD</h3>
+          <p>最古老也最正统的一支。用素材里的声音重新编排成音乐，
+             画面服务于节奏。日本源头与中文社区在这一支上一脉相承。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">技术天花板</div>
+          <h3>人力 VOCALOID</h3>
+          <p>把真人语音逐字调音成完整歌曲。一个作品背后可能是几千次手工调整，
+             是这门手艺最难被速成替代的部分。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">社区狂欢</div>
+          <h3>全明星</h3>
+          <p>把几十位素材人物剪进同一个作品，像一场跨时空的联欢。
+             作品本身就是社区的自我展示：认得的人越多，看得越快乐。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">向外输出</div>
+          <h3>鬼畜向音乐与 remix</h3>
+          <p>部分作品彻底脱离视频形态，以歌曲形式进入音乐平台与线下演出。
+             这是这个亚文化最成功的一次向外输出。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">相邻而非从属</div>
+          <h3>抽象文化</h3>
+          <p>与鬼畜同源、经常共享素材与人群，但更依赖直播语境与社群黑话。
+             把它和鬼畜当成同一件事，两边都会觉得不对。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">当代形态</div>
+          <h3>短视频快剪</h3>
+          <p>载体换成竖屏，节奏压缩到十几秒，只保留最有效的那一击。
+             手法仍在延续，但社区性的部分几乎消失了。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 06 案例 ============== -->
+  <section id="case" class="alt">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">06 / 案例</div>
+        <h2>一个<em>完整的样本</em></h2>
+        <p class="lead">
+          要理解鬼畜的全部机制，最好的办法是看一个从萌芽走到退潮的完整案例。
+          中文互联网上，这个样本是「哲♂学」。
+        </p>
+      </div>
+
+      <div class="split reveal">
+        <div>
+          <p class="para" style="max-width:none">
+            它几乎命中了鬼畜亚文化的每一个要素：素材高度可复用、
+            台词短到可以当音效、符号系统自洽到能拼进任何词里，
+            社区还自发建构了一整套虚构世界观。它经历了完整的
+            <span class="hl-c">萌芽 → 高峰 → 转折 → 退潮</span>，
+            甚至包含了「核心人物离世」这样罕见的情感转折点。
+          </p>
+          <p class="para" style="max-width:none">
+            更重要的是，它演示了这类文化的共同代价：
+            <span class="hl-p">传播得越广，原初语境就越薄</span>。
+            今天用着那个符号的绝大多数人，
+            已经完全不知道它从哪来了。
+          </p>
+        </div>
+        <div class="case-card">
+          <div class="kicker">延伸阅读 · 已完成的单页</div>
+          <h3>哲 ♂ 学 / homo 文化</h3>
+          <p style="margin:0;color:var(--ink-2);font-size:14.5px">
+            包含完整时间线、人物、16 条核心词汇、名场面台词，
+            以及关于玩梗边界的几条底线。
+          </p>
+          <a class="case-link" href="homo-culture.html">打开 homo-culture.html →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 07 词典 ============== -->
+  <section id="dict">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">07 / 行话</div>
+        <h2>不懂这些词，<em>等于没进过评论区</em></h2>
+      </div>
+
+      <div class="glossary-bar reveal">
+        <input id="glossSearch" type="search" placeholder="搜索词条，例如「对轴」「全明星」" aria-label="搜索词条">
+        <div class="count" id="glossCount">共 18 条</div>
+      </div>
+
+      <div class="gloss-grid" id="glossGrid">
+        <dl class="term"><dt>鬼畜<small>guǐ chù</small></dt><dd>既指一种高速重复的剪辑手法，也指以此手法创作的整个视频门类。</dd></dl>
+        <dl class="term"><dt>音MAD<small>音系二创</small></dt><dd>用素材里的声音重新编排成音乐的创作形式，是整个类型的技术源头。</dd></dl>
+        <dl class="term"><dt>人力 VOCALOID<small>人力V</small></dt><dd>用真人语音逐字调音拼出歌曲。中文鬼畜公认的技术天花板。</dd></dl>
+        <dl class="term"><dt>对轴<small>duì zhóu</small></dt><dd>把画面切换精确对齐到节拍。对轴质量直接决定作品成败，也是最耗时的工序。</dd></dl>
+        <dl class="term"><dt>调音<small>tiáo yīn</small></dt><dd>修改语音的音高与时长，让它唱出原本不存在的旋律。音准是硬指标。</dd></dl>
+        <dl class="term"><dt>素材<small>sù cái</small></dt><dd>被用于二创的原始影像片段。素材社区地位很高，好素材会被反复借用。</dd></dl>
+        <dl class="term"><dt>万能素材<small>社区地位</small></dt><dd>能适配任何语境的镜头。它已经脱离原作品，成为公共零件。</dd></dl>
+        <dl class="term"><dt>全明星<small>quán míng xīng</small></dt><dd>把多位素材人物剪进同一部作品的形式，通常作为社区庆典式的作品出现。</dd></dl>
+        <dl class="term"><dt>鼻祖<small>bí zǔ</small></dt><dd>对最早被大规模使用的素材人物的敬称，带明显的纪念意味。</dd></dl>
+        <dl class="term"><dt>万恶之源<small>圈内戏称</small></dt><dd>对梗的原始素材的昵称，意思是「一切从这里开始」。</dd></dl>
+        <dl class="term"><dt>神曲<small>shén qǔ</small></dt><dd>播放量与传唱度都极高的鬼畜作品。部分神曲已进入线下演出场景。</dd></dl>
+        <dl class="term"><dt>空耳<small>kōng ěr</small></dt><dd>把听不懂的外语发音直接当作歌词记下来，形成与原意无关的谐音字幕。</dd></dl>
+        <dl class="term"><dt>搬运<small>bān yùn</small></dt><dd>把其他平台的视频原样转载过来。早期中文鬼畜全靠搬运起家。</dd></dl>
+        <dl class="term"><dt>鬼畜区<small>分区名</small></dt><dd>视频站为这类内容设立的固定分区，一度是最活跃的创作板块之一。</dd></dl>
+        <dl class="term"><dt>三次元 / 二次元<small>素材分类</small></dt><dd>按素材来源划分：真人影像与动画影像。两者的观众与技术传统并不相同。</dd></dl>
+        <dl class="term"><dt>破圈<small>pò quān</small></dt><dd>梗扩散到圈外大众视野。破圈通常以丢失语境为代价。</dd></dl>
+        <dl class="term"><dt>过审<small>guò shěn</small></dt><dd>作品通过平台审核。审核规则是每个鬼畜作者都要长期摸索的隐藏关卡。</dd></dl>
+        <dl class="term"><dt>考古<small>kǎo gǔ</small></dt><dd>翻看多年前的老作品。如今提到鬼畜时，很多人实际在做的是这件事。</dd></dl>
+      </div>
+      <div class="empty-tip" id="glossEmpty">没有匹配的词条，换个关键词试试。</div>
+    </div>
+  </section>
+
+  <!-- ============== 08 生态 ============== -->
+  <section id="ecology" class="alt">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">08 / 生态</div>
+        <h2>它是<em>怎么运转的</em></h2>
+        <p class="lead">
+          一个鬼畜作品从投稿到成为公共梗，要经过四道关口。
+          每一步都有人在做事，也有人在决定它能不能活下去。
+        </p>
+      </div>
+
+      <div class="flow four">
+        <div class="step reveal"><span>环节 01</span><h3>作者</h3><p>个人或小团队完成剪辑、调音、混音。一稿几百小时是常态。</p></div>
+        <div class="step reveal"><span>环节 02</span><h3>平台</h3><p>决定作品能否过审、能获得多少推荐。规则往往不透明，需要长期试错。</p></div>
+        <div class="step reveal"><span>环节 03</span><h3>弹幕</h3><p>观众用弹幕同步参与，把一个视频变成集体现场。这是这类内容最重要的放大器。</p></div>
+        <div class="step reveal"><span>环节 04</span><h3>外溢</h3><p>作品里的片段、音效、句式流出视频站，进入聊天与日常语汇。</p></div>
+      </div>
+
+      <div class="split" style="margin-top:36px">
+        <div class="reveal">
+          <h3 style="font-size:19px;margin-bottom:14px">为什么它能长到这么大</h3>
+          <ul class="list">
+            <li><b>门槛分层明确。</b>重复一帧就能上手，调到能唱歌则需要多年功力，谁都能找到自己的位置。</li>
+            <li><b>素材是公共的。</b>不需要原创拍摄，任何人用同一批素材都不会被指责抄袭。</li>
+            <li><b>弹幕天然合拍。</b>这类内容节奏密集、笑点同步，正是弹幕最擅长的场景。</li>
+            <li><b>反馈见效快。</b>技术提升能立刻体现在播放量上，形成清晰的正反馈。</li>
+            <li><b>它足够无害。</b>不承载严肃议题，因此可以被安全地大规模传播。</li>
+          </ul>
+        </div>
+        <div class="callout reveal">
+          <h3>但它有三个天生的软肋</h3>
+          <p><b>素材不是自己的。</b>整个类型建立在对他人影像的引用上，随时可能被要求下架。</p>
+          <p><b>技术护城河在变浅。</b>工具越来越好用，专业作者与业余作者之间的差距被压缩。</p>
+          <p><b>笑点依赖共识。</b>当社区分裂、观众换代，同一段画面就再也笑不出来了。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 09 争议 ============== -->
+  <section id="dispute">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">09 / 争议</div>
+        <h2>绕不开的<em>那道边界</em></h2>
+        <p class="lead">
+          这个亚文化最根本的矛盾，从第一天就存在：
+          <span class="hl">它的创作自由，建立在别人的脸和声音之上。</span>
+        </p>
+      </div>
+
+      <div class="grid g2">
+        <div class="card reveal">
+          <div class="kicker">权利</div>
+          <h3>被引用的人有没有同意</h3>
+          <p>绝大多数被剪进作品的真人，从未同意过自己成为素材。
+             他们中的很多人只是恰好说了一句有辨识度的话。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">法律</div>
+          <h3>肖像权、名誉权与著作权</h3>
+          <p>引用他人影像需要面对三重权利。当作品带有贬损意味时，
+             问题会从「能不能引用」变成「是不是侵权」。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">事件</div>
+          <h3>2019 年的那次转折</h3>
+          <p>针对流量明星的大规模二创引发律师函与内容清理，
+             整个分区第一次被迫面对规则问题，创作氛围明显收紧。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">伦理</div>
+          <h3>别把梗追到真人身上</h3>
+          <p>在作品里玩梗与跑到本人账号下刷屏是两件事。
+             后者是骚扰，也是这个圈子最容易越界的地方。</p>
+        </div>
+      </div>
+
+      <div class="callout pink reveal" style="margin-top:24px">
+        <h3>一条具体的准则</h3>
+        <p>区分<span class="hl">「对作品的评论性引用」</span>和<span class="hl">「对个人的持续消费」</span>。
+           前者是创作，后者是伤害。判断标准很简单：如果换成你本人被这样对待，你接受吗。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 10 现状 ============== -->
+  <section id="now" class="alt">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">10 / 现状</div>
+        <h2>它留下了<em>什么</em></h2>
+      </div>
+
+      <div class="grid g3">
+        <div class="card reveal">
+          <div class="kicker">作为社区</div>
+          <h3>规模缩小，仍在运转</h3>
+          <p>核心作者减少，投稿量下滑，但并未消失。
+             留守的创作者更少追求流量，更像在维护一门手艺。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">作为技术</div>
+          <h3>扩散到整个视频行业</h3>
+          <p>对轴、变速、音效叠加这些手法，如今出现在广告、综艺、短视频剪辑中。
+             它们已经不叫鬼畜，但都来自鬼畜。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">作为语言</div>
+          <h3>留下了一批通用梗</h3>
+          <p>许多句式与音效脱离了作品，成为日常聊天里的零件。
+             使用者往往不知道出处，这正是传播成功的证明。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">作为记忆</div>
+          <h3>一代人的上网史</h3>
+          <p>对 2010 年代泡在视频站的那批人来说，
+             鬼畜标记了一段具体的青春。老作品的评论区更像留言簿。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">作为案例</div>
+          <h3>被反复研究</h3>
+          <p>它是讨论迷因传播、二创经济、平台治理与青年亚文化时，
+             最常被引用的中文样本之一。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">作为手艺</div>
+          <h3>技艺本身没有消失</h3>
+          <p>会调音、会对轴的人还在，只是他们现在做的东西换了名字。
+             手艺一旦被掌握，就不会因为分区关闭而失传。</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============== 11 会员制餐厅 ============== -->
+  <section id="diner">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">11 / 尾声</div>
+        <h2>会员制<em>餐厅</em></h2>
+        <p class="lead">
+          要理解这个亚文化，最贴切的比喻不是博物馆，而是一家会员制餐厅：
+          门脸不起眼，菜单上不写解释，能坐下来的一直是那批老客。
+          入场券不是钱，<span class="hl">是共同记忆</span>。
+        </p>
+      </div>
+
+      <div class="art-panel reveal">
+        <svg viewBox="0 0 1000 220" role="img" aria-label="示意图：一块写着「会员制餐厅」的霓虹灯招牌。">
+          <defs>
+            <linearGradient id="gNeon" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#2fd0f0"/>
+              <stop offset=".55" stop-color="#9fe8f8"/>
+              <stop offset="1" stop-color="#ff4d7d"/>
+            </linearGradient>
+            <filter id="fGlow" x="-30%" y="-60%" width="160%" height="220%">
+              <feGaussianBlur stdDeviation="9" result="b"/>
+              <feMerge>
+                <feMergeNode in="b"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+
+          <rect width="1000" height="220" fill="#0b1018"/>
+          <rect x="70" y="34" width="860" height="152" rx="16" fill="#0f1720" stroke="#1f2c3b" stroke-width="1"/>
+          <rect x="86" y="50" width="828" height="120" rx="10" fill="none" stroke="url(#gNeon)" stroke-width="2" opacity=".55"/>
+
+          <circle cx="86" cy="50" r="4" fill="#2fd0f0"/>
+          <circle cx="914" cy="50" r="4" fill="#ff4d7d"/>
+          <circle cx="86" cy="170" r="4" fill="#ff4d7d"/>
+          <circle cx="914" cy="170" r="4" fill="#2fd0f0"/>
+
+          <text x="500" y="122" text-anchor="middle" font-size="58" font-weight="700"
+                fill="url(#gNeon)" filter="url(#fGlow)" letter-spacing="8">会员制餐厅</text>
+          <text x="500" y="155" text-anchor="middle" font-size="15" letter-spacing="9"
+                fill="#5d7488">MEMBERS ONLY</text>
+        </svg>
+        <div class="art-cap">营业中 · 不设价目表 · 不提供解释 · 不接受律师函</div>
+      </div>
+
+      <div class="split" style="margin-top:34px">
+        <div class="reveal">
+          <h3 style="font-size:19px;margin-bottom:14px">入会须知</h3>
+          <ul class="list">
+            <li><b>本店不设解释。</b>新客问「这到底好笑在哪」，得到的回答永远是「你先看三十个作品」。</li>
+            <li><b>招牌菜十年不换。</b>同一帧画面端上桌几百次，老客照样买单，这就是素材复用。</li>
+            <li><b>后厨不对外开放。</b>对轴和调音是看不见的功夫，外行只觉得「不就是重复吗」。</li>
+            <li><b>邻桌的菜别端错。</b>淫梦那一桌坐在隔壁，是另一家店，两家的菜单不能混着点。</li>
+            <li><b>本店不接受律师函。</b>2019 年之后，这条规矩被写在了墙上。</li>
+            <li><b>本店不接待真人。</b>菜单上的是一段影像，不是影像里的那个人。这条是所有规矩里最要紧的。</li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h3 style="font-size:19px;margin-bottom:14px">今日菜单</h3>
+          <div class="menu">
+            <div class="menu-item"><span class="dish">前菜 · 空耳</span><span class="dots"></span><span class="price">听不懂，照样跟着唱</span></div>
+            <div class="menu-item"><span class="dish">例汤 · 素材复用</span><span class="dots"></span><span class="price">一把勺子舀十年</span></div>
+            <div class="menu-item"><span class="dish">主菜 · 人力VOCALOID</span><span class="dots"></span><span class="price">一道菜雕三千刀</span></div>
+            <div class="menu-item"><span class="dish">招牌 · 全明星</span><span class="dots"></span><span class="price">一桌坐齐所有老客</span></div>
+            <div class="menu-item"><span class="dish">主食 · 对轴</span><span class="dots"></span><span class="price">差半拍就夹不起来</span></div>
+            <div class="menu-item"><span class="dish">甜点 · 考古</span><span class="dots"></span><span class="price">翻出十年前的录像带</span></div>
+            <div class="menu-item"><span class="dish">餐后 · 破圈</span><span class="dots"></span><span class="price">出了门就没人认得了</span></div>
+            <div class="menu-note">菜单不标价：这里的「浓度」指的是坐下的人里，有多少张是老面孔。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout reveal" style="margin-top:24px">
+        <h3>最后一句</h3>
+        <p>鬼畜最了不起的地方，是它证明了<span class="hl">普通人可以用别人的几秒钟镜头，做出自己的作品</span>。
+           它也提醒了后来所有人：这自由的边界，永远停在另一个人的面孔上。</p>
+        <p>所以这家餐厅最好的结局，不是客人越来越多，而是<span class="hl">留下来的每一个人都还记得菜是怎么做的</span>。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">鬼畜<span>图鉴</span></div>
+        <p>一份关于中文互联网剪辑亚文化的单页面科普。
+           内容依据公开可查的网络文化史料整理，年份与分期采用常见说法，
+           不同社区的记法可能存在差异。本页不包含任何影像素材。</p>
+        <p>相关案例：<a href="homo-culture.html">哲 ♂ 学 / homo 文化图鉴</a></p>
+      </div>
+      <div style="text-align:right;font-size:12.5px;line-height:2">
+        单页站点 · 无外部依赖<br>
+        可用键盘 Tab 与屏幕阅读器浏览
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" type="button" aria-label="回到顶部">↑</button>
+
+<script>
+(function () {
+  "use strict";
+
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- 顶部装饰条 ---------- */
+  var strip = document.getElementById("strip");
+  if (strip) {
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < 96; i++) {
+      var bar = document.createElement("i");
+      var h = 6 + Math.abs(Math.sin(i * 0.7)) * 26;
+      bar.style.height = h.toFixed(1) + "px";
+      frag.appendChild(bar);
+    }
+    strip.appendChild(frag);
+  }
+
+  /* ---------- 滚动出现 ---------- */
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+  if ("IntersectionObserver" in window && !reduceMotion) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add("in"); });
+  }
+
+  /* ---------- 目录高亮 ---------- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll("#navLinks a"));
+  var toTop = document.getElementById("toTop");
+  var sections = navLinks
+    .map(function (a) { return document.querySelector(a.getAttribute("href")); })
+    .filter(function (el) { return !!el; });
+
+  function syncNav() {
+    var pos = window.scrollY + 140;
+    var current = null;
+    sections.forEach(function (sec) {
+      if (sec.offsetTop <= pos) { current = sec.id; }
+    });
+    navLinks.forEach(function (a) {
+      a.classList.toggle("active", a.getAttribute("href") === "#" + current);
+    });
+  }
+
+  var ticking = false;
+  function onScroll() {
+    if (ticking) { return; }
+    ticking = true;
+    window.requestAnimationFrame(function () {
+      syncNav();
+      toTop.classList.toggle("show", window.scrollY > 620);
+      ticking = false;
+    });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  syncNav();
+
+  /* ---------- 回到顶部 ---------- */
+  toTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+  });
+
+  /* ---------- 词典搜索 ---------- */
+  var search = document.getElementById("glossSearch");
+  var terms = Array.prototype.slice.call(document.querySelectorAll("#glossGrid .term"));
+  var countEl = document.getElementById("glossCount");
+  var emptyEl = document.getElementById("glossEmpty");
+
+  function filterTerms() {
+    var q = search.value.trim().toLowerCase();
+    var shown = 0;
+    terms.forEach(function (t) {
+      var hit = q === "" || t.textContent.toLowerCase().indexOf(q) !== -1;
+      t.classList.toggle("hide", !hit);
+      if (hit) { shown++; }
+    });
+    countEl.textContent = q === "" ? "共 " + terms.length + " 条" : "匹配 " + shown + " / " + terms.length + " 条";
+    emptyEl.classList.toggle("show", shown === 0);
+  }
+  search.addEventListener("input", filterTerms);
+
+  /* ---------- 鬼畜模拟器 ---------- */
+  var simInput = document.getElementById("simInput");
+  var simWord = document.getElementById("simWord");
+  var simBpm = document.getElementById("simBpm");
+  var simCount = document.getElementById("simCount");
+  var simState = document.getElementById("simState");
+  var startBtn = document.getElementById("simStart");
+  var resetBtn = document.getElementById("simReset");
+
+  var timer = null;
+  var running = false;
+  var hits = 0;
+  var delay = 420;
+  var MAX_HITS = 32;
+  var MIN_DELAY = 70;
+
+  function currentWord() {
+    var v = simInput.value.trim();
+    return v === "" ? "鬼畜" : v;
+  }
+
+  function resetSim(showIdle) {
+    if (timer !== null) { window.clearTimeout(timer); timer = null; }
+    running = false;
+    hits = 0;
+    delay = 420;
+    simWord.classList.remove("hit", "boom");
+    simWord.textContent = currentWord();
+    simCount.textContent = "0";
+    simBpm.textContent = "—";
+    simState.textContent = showIdle ? "待机" : "已复位";
+    startBtn.disabled = false;
+    startBtn.textContent = "开始重复";
+  }
+
+  function tick() {
+    hits++;
+    simWord.classList.add("hit");
+    window.setTimeout(function () { simWord.classList.remove("hit"); }, Math.min(delay, 90));
+    simCount.textContent = String(hits);
+    simBpm.textContent = String(Math.round(60000 / delay));
+    simState.textContent = "加速中";
+
+    if (hits >= MAX_HITS || delay <= MIN_DELAY) {
+      running = false;
+      timer = null;
+      simWord.classList.add("boom");
+      simState.textContent = "结束";
+      startBtn.disabled = false;
+      startBtn.textContent = "再来一次";
+      return;
+    }
+
+    delay = Math.max(MIN_DELAY, Math.round(delay * 0.9));
+    timer = window.setTimeout(tick, delay);
+  }
+
+  startBtn.addEventListener("click", function () {
+    if (running) { return; }
+    resetSim(false);
+    simWord.textContent = currentWord();
+    running = true;
+    startBtn.disabled = true;
+    startBtn.textContent = "进行中…";
+    simState.textContent = "启动";
+    timer = window.setTimeout(tick, delay);
+  });
+
+  resetBtn.addEventListener("click", function () { resetSim(true); });
+  simInput.addEventListener("input", function () {
+    if (!running) { simWord.textContent = currentWord(); }
+  });
+
+  resetSim(true);
+})();
+</script>
+</body>
+</html>

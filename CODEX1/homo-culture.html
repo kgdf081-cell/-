@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>哲 ♂ 学 —— Homo 文化图鉴</title>
+<meta name="description" content="一份关于中文互联网「homo 文化 / 哲♂学 / 兄贵」亚文化的单页图鉴：起源、人物、词汇、名场面、传播路径与当代边界。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0b0e'/%3E%3Ccircle cx='30' cy='34' r='13' fill='none' stroke='%23c8392f' stroke-width='5'/%3E%3Cpath d='M39 25 L52 12 M40 12 h12 v12' stroke='%23d8a844' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#0b0b0e;
+    --bg-2:#101017;
+    --panel:#16161d;
+    --panel-2:#1d1d26;
+    --line:#2b2b36;
+    --ink:#eceae4;
+    --ink-2:#b6b2a8;
+    --muted:#8d897f;
+    --red:#c8392f;
+    --red-soft:rgba(200,57,47,.14);
+    --gold:#d8a844;
+    --gold-soft:rgba(216,168,68,.14);
+    --radius:14px;
+    --maxw:1080px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Source Han Sans SC","Noto Sans SC",system-ui,-apple-system,"Segoe UI",sans-serif;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%}
+  a{color:inherit}
+
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* ---------- top bar ---------- */
+  .notice{
+    background:linear-gradient(90deg,var(--red) 0%,#8d2a22 55%,var(--gold) 140%);
+    color:#fff;
+    font-size:13px;
+    letter-spacing:.02em;
+    text-align:center;
+    padding:8px 20px;
+  }
+  .notice b{font-weight:600}
+
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,11,14,.82);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    width:100%;max-width:var(--maxw);margin:0 auto;padding:12px 24px;
+    display:flex;align-items:center;gap:20px;
+  }
+  .brand{font-weight:700;letter-spacing:.06em;white-space:nowrap;font-size:15px;text-decoration:none;color:var(--ink)}
+  .brand span{color:var(--red)}
+  .nav-links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin-left:auto}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{
+    font-size:13px;color:var(--ink-2);text-decoration:none;
+    padding:6px 11px;border-radius:999px;white-space:nowrap;
+    transition:color .18s ease,background .18s ease;
+  }
+  .nav-links a:hover{color:var(--ink);background:#1c1c24}
+  .nav-links a.active{color:#fff;background:var(--red-soft);box-shadow:inset 0 0 0 1px rgba(200,57,47,.5)}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:88px 0 72px;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:-30% -10% auto -10%;height:120%;
+    background:
+      radial-gradient(52% 46% at 22% 30%,rgba(200,57,47,.30),transparent 62%),
+      radial-gradient(46% 40% at 78% 22%,rgba(216,168,68,.20),transparent 66%),
+      radial-gradient(60% 50% at 52% 82%,rgba(58,72,160,.20),transparent 68%);
+    filter:blur(6px);pointer-events:none;
+  }
+  .hero .wrap{position:relative}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12px;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--gold);border:1px solid rgba(216,168,68,.34);
+    padding:5px 12px;border-radius:999px;margin-bottom:26px;
+  }
+  h1{
+    font-size:clamp(52px,12vw,116px);
+    line-height:.98;margin:0 0 10px;letter-spacing:.02em;font-weight:800;
+    background:linear-gradient(180deg,#fff 8%,#e6dcc6 46%,#b98d3c 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-sub{
+    font-size:clamp(15px,2.4vw,19px);color:var(--ink-2);
+    max-width:640px;margin:0 0 8px;
+  }
+  .hero-sub b{color:var(--gold);font-weight:600}
+  .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+  .art-panel{
+    margin-top:34px;border:1px solid var(--line);border-radius:16px;overflow:hidden;
+    background:#0f0f13;
+  }
+  .art-panel svg{display:block;width:100%;height:auto}
+  .art-cap{
+    font-size:12.5px;color:var(--muted);padding:10px 16px;
+    border-top:1px solid var(--line);background:rgba(255,255,255,.015);
+  }
+  .tag{
+    font-size:12.5px;color:var(--ink-2);border:1px solid var(--line);
+    background:var(--panel);border-radius:999px;padding:5px 13px;
+  }
+  .hero-meta{
+    margin-top:36px;display:flex;flex-wrap:wrap;gap:26px;
+    font-size:13px;color:var(--muted);
+  }
+  .hero-meta b{display:block;color:var(--ink);font-size:20px;font-weight:700;letter-spacing:.02em}
+
+  .scroll-hint{
+    margin-top:44px;font-size:12px;letter-spacing:.2em;color:var(--muted);
+    display:flex;align-items:center;gap:10px;
+  }
+  .scroll-hint i{display:block;width:46px;height:1px;background:linear-gradient(90deg,var(--red),transparent)}
+
+  /* ---------- section shells ---------- */
+  section{padding:74px 0;border-top:1px solid var(--line)}
+  section.alt{background:var(--bg-2)}
+  .sec-head{margin-bottom:34px}
+  .sec-no{
+    font-size:12px;letter-spacing:.28em;color:var(--red);
+    font-variant-numeric:tabular-nums;margin-bottom:10px;
+  }
+  h2{
+    font-size:clamp(25px,4.2vw,38px);margin:0 0 12px;font-weight:700;letter-spacing:.01em;
+  }
+  h2 em{font-style:normal;color:var(--gold)}
+  .lead{color:var(--ink-2);max-width:720px;margin:0}
+  h3{font-size:17px;margin:0 0 8px;font-weight:600}
+
+  p.para{color:var(--ink-2);max-width:760px}
+  p.para + p.para{margin-top:14px}
+
+  .divider-sym{
+    text-align:center;color:var(--red);letter-spacing:1.2em;
+    font-size:13px;opacity:.55;padding:30px 0 0;user-select:none;
+  }
+
+  /* ---------- generic card grids ---------- */
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:repeat(2,1fr)}
+
+  .card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;transition:border-color .2s ease,transform .2s ease,background .2s ease;
+  }
+  .card:hover{border-color:rgba(216,168,68,.42);transform:translateY(-2px)}
+  .card .kicker{font-size:12px;letter-spacing:.14em;color:var(--red);margin-bottom:8px}
+  .card p{margin:0;color:var(--ink-2);font-size:14.5px}
+
+  /* ---------- timeline ---------- */
+  .timeline{position:relative;padding-left:30px}
+  .timeline::before{
+    content:"";position:absolute;left:7px;top:6px;bottom:6px;width:1px;
+    background:linear-gradient(180deg,var(--red),rgba(216,168,68,.5),transparent);
+  }
+  .tl-item{position:relative;padding:0 0 30px}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-item::before{
+    content:"";position:absolute;left:-30px;top:9px;width:15px;height:15px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--red);
+  }
+  .tl-year{
+    font-size:13px;letter-spacing:.1em;color:var(--gold);
+    font-variant-numeric:tabular-nums;margin-bottom:3px;font-weight:600;
+  }
+  .tl-item h3{margin:0 0 5px}
+  .tl-item p{margin:0;color:var(--ink-2);font-size:14.5px;max-width:680px}
+
+  /* ---------- people ---------- */
+  .person{
+    background:linear-gradient(160deg,var(--panel-2),var(--panel));
+    border:1px solid var(--line);border-radius:var(--radius);padding:24px;
+    position:relative;overflow:hidden;
+  }
+  .person::after{
+    content:"♂";position:absolute;right:14px;top:2px;font-size:76px;
+    color:rgba(200,57,47,.13);line-height:1;pointer-events:none;
+  }
+  .person .role{font-size:12px;letter-spacing:.14em;color:var(--gold);margin-bottom:8px}
+  .person p{margin:0;color:var(--ink-2);font-size:14.5px}
+  .person .life{font-size:12.5px;color:var(--muted);margin-top:12px;letter-spacing:.04em}
+
+  /* ---------- glossary ---------- */
+  .glossary-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:22px}
+  .glossary-bar input{
+    flex:1 1 260px;min-width:200px;
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    color:var(--ink);padding:11px 14px;font-size:14.5px;font-family:inherit;
+  }
+  .glossary-bar input:focus{outline:none;border-color:rgba(216,168,68,.6);box-shadow:0 0 0 3px rgba(216,168,68,.12)}
+  .glossary-bar .count{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .gloss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+  .term{
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;
+    transition:border-color .2s ease;
+  }
+  .term:hover{border-color:rgba(200,57,47,.45)}
+  .term dt{font-weight:700;font-size:15.5px;margin-bottom:2px}
+  .term dt small{font-weight:400;color:var(--muted);font-size:12px;margin-left:6px;letter-spacing:.04em}
+  .term dd{margin:0;color:var(--ink-2);font-size:14px}
+  .term.hide{display:none}
+  .empty-tip{display:none;color:var(--muted);font-size:14px;padding:8px 2px}
+  .empty-tip.show{display:block}
+
+  /* ---------- quotes ---------- */
+  .quotes{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+  .quote{
+    background:#101016;border:1px solid var(--line);border-left:3px solid var(--red);
+    border-radius:8px 12px 12px 8px;padding:18px 20px;
+  }
+  .quote .en{font-size:17px;font-weight:600;letter-spacing:.01em;color:#fff;margin-bottom:6px}
+  .quote .cn{font-size:13.5px;color:var(--ink-2)}
+  .quote .use{font-size:12.5px;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+
+  /* ---------- generator ---------- */
+  .gen{
+    margin-top:26px;background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--radius);padding:22px;
+  }
+  .gen-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  button.btn{
+    font-family:inherit;font-size:14px;cursor:pointer;
+    background:var(--red);color:#fff;border:none;border-radius:10px;
+    padding:11px 20px;transition:filter .18s ease,transform .18s ease;
+  }
+  button.btn:hover{filter:brightness(1.12)}
+  button.btn:active{transform:translateY(1px)}
+  button.btn.ghost{background:transparent;color:var(--ink-2);border:1px solid var(--line)}
+  button.btn.ghost:hover{color:var(--ink);border-color:rgba(216,168,68,.5);filter:none}
+  .gen-out{
+    margin-top:16px;font-size:clamp(18px,3.4vw,26px);font-weight:600;
+    color:var(--gold);letter-spacing:.02em;min-height:1.6em;
+  }
+  .gen-tip{font-size:12.5px;color:var(--muted);margin-top:6px}
+
+  /* ---------- split / notes ---------- */
+  .split{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:start}
+  .list{list-style:none;margin:0;padding:0}
+  .list li{
+    position:relative;padding:0 0 16px 26px;color:var(--ink-2);font-size:14.5px;
+  }
+  .list li::before{
+    content:"♂";position:absolute;left:0;top:1px;color:var(--red);font-size:13px;
+  }
+  .list li b{color:var(--ink);font-weight:600}
+
+  .callout{
+    background:var(--gold-soft);border:1px solid rgba(216,168,68,.3);
+    border-radius:var(--radius);padding:22px;
+  }
+  .callout h3{color:var(--gold)}
+  .callout p{margin:0;color:var(--ink-2);font-size:14.5px}
+  .callout p + p{margin-top:12px}
+
+  /* ---------- flow ---------- */
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
+  .flow .step{
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;
+  }
+  .flow .step span{
+    display:inline-block;font-size:11.5px;letter-spacing:.16em;color:var(--muted);
+    margin-bottom:8px;font-variant-numeric:tabular-nums;
+  }
+  .flow .step h3{font-size:15px;margin:0 0 6px}
+  .flow .step p{margin:0;font-size:13.5px;color:var(--ink-2)}
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid var(--line);background:#08080b;padding:46px 0 60px;
+    color:var(--muted);font-size:13px;
+  }
+  .foot-top{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:flex-end}
+  .foot-brand{font-size:22px;font-weight:800;letter-spacing:.05em;color:var(--ink)}
+  .foot-brand span{color:var(--red)}
+  footer p{margin:18px 0 0;max-width:720px}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .card:hover{transform:none}
+  }
+
+  /* ---------- to top ---------- */
+  #toTop{
+    position:fixed;right:20px;bottom:24px;z-index:60;
+    width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+    background:rgba(22,22,29,.92);color:var(--ink-2);font-size:16px;cursor:pointer;
+    opacity:0;pointer-events:none;transition:opacity .25s ease,border-color .25s ease,color .25s ease;
+  }
+  #toTop.show{opacity:1;pointer-events:auto}
+  #toTop:hover{border-color:rgba(216,168,68,.6);color:var(--gold)}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:900px){
+    .g3{grid-template-columns:1fr 1fr}
+    .flow{grid-template-columns:1fr 1fr}
+    .split{grid-template-columns:1fr;gap:26px}
+  }
+  @media (max-width:640px){
+    .wrap,.nav-inner{padding:0 18px}
+    .nav-inner{padding:10px 18px}
+    .hero{padding:64px 0 54px}
+    section{padding:56px 0}
+    .g3,.g2{grid-template-columns:1fr}
+    .flow{grid-template-columns:1fr}
+    .card,.person,.callout,.gen{padding:18px}
+    .hero-meta{gap:18px}
+    .foot-top{display:block}
+  }
+</style>
+</head>
+<body>
+
+<div class="notice">本页为<b>网络亚文化科普</b> · 不提供、不传播任何成人内容 · 请勿将网络梗用于现实中的具体个人</div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">哲<span>♂</span>学图鉴</a>
+    <nav class="nav-links" id="navLinks" aria-label="页面目录">
+      <a href="#intro">是什么</a>
+      <a href="#origin">起源</a>
+      <a href="#people">人物</a>
+      <a href="#dict">词典</a>
+      <a href="#lines">名场面</a>
+      <a href="#spread">传播</a>
+      <a href="#now">现状</a>
+      <a href="#rules">边界</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Chinese Internet Subculture · since 2008</div>
+      <h1>哲 ♂ 学</h1>
+      <p class="hero-sub">
+        中文互联网上被称为 <b>“homo 文化”</b> 的那个东西，正式名字是「哲♂学」——
+        它和古希腊没有任何关系，而是一段由健身影片素材、日本弹幕站和中文鬼畜区共同长出来的
+        <b>网络亚文化</b>。
+      </p>
+
+      <div class="art-panel">
+        <svg viewBox="0 0 1000 300" role="img" aria-label="示意图：一根古典石柱，右侧是一个放大的男性符号。">
+          <defs>
+            <radialGradient id="hGlow" cx=".5" cy=".5" r=".5">
+              <stop offset="0" stop-color="#c8392f" stop-opacity=".42"/>
+              <stop offset="1" stop-color="#c8392f" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="hGold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f0cd7a"/>
+              <stop offset="1" stop-color="#b8862c"/>
+            </linearGradient>
+          </defs>
+
+          <rect width="1000" height="300" fill="#0f0f13"/>
+          <ellipse cx="500" cy="176" rx="430" ry="152" fill="url(#hGlow)"/>
+
+          <rect x="246" y="270" width="218" height="12" rx="3" fill="#1a1a22" stroke="#2b2b36"/>
+          <rect x="270" y="252" width="170" height="18" rx="4" fill="#1c1c24" stroke="url(#hGold)" opacity=".75"/>
+          <rect x="288" y="70" width="134" height="182" fill="#14141a" stroke="#2b2b36"/>
+          <g stroke="#2b2b36" stroke-width="1">
+            <line x1="298" y1="76" x2="298" y2="246"/>
+            <line x1="312" y1="76" x2="312" y2="246"/>
+            <line x1="326" y1="76" x2="326" y2="246"/>
+            <line x1="340" y1="76" x2="340" y2="246"/>
+            <line x1="354" y1="76" x2="354" y2="246"/>
+            <line x1="368" y1="76" x2="368" y2="246"/>
+            <line x1="382" y1="76" x2="382" y2="246"/>
+            <line x1="396" y1="76" x2="396" y2="246"/>
+            <line x1="410" y1="76" x2="410" y2="246"/>
+          </g>
+          <rect x="270" y="52" width="170" height="18" rx="4" fill="#1c1c24" stroke="url(#hGold)" opacity=".75"/>
+
+          <circle cx="668" cy="152" r="56" fill="none" stroke="url(#hGold)" stroke-width="8"/>
+          <line x1="708" y1="112" x2="784" y2="36" stroke="url(#hGold)" stroke-width="8" stroke-linecap="round"/>
+          <polygon points="792,28 764,37 784,56" fill="url(#hGold)"/>
+
+          <text x="172" y="112" font-size="42" fill="#c8392f" opacity=".2">♂</text>
+          <text x="856" y="244" font-size="58" fill="#d8a844" opacity=".16">♂</text>
+          <text x="806" y="96" font-size="30" fill="#c8392f" opacity=".22">♂</text>
+        </svg>
+        <div class="art-cap">一根柱子，一个符号，一个被重新命名的词 —— 哲 ♂ 学的全部视觉资产就只有这么多</div>
+      </div>
+
+      <div class="hero-tags">
+        <span class="tag">兄贵</span>
+        <span class="tag">音MAD</span>
+        <span class="tag">鬼畜</span>
+        <span class="tag">新日暮里</span>
+        <span class="tag">比利王</span>
+        <span class="tag">♂</span>
+      </div>
+
+      <div class="hero-meta">
+        <div><b>2007</b>前后萌芽</div>
+        <div><b>2018</b>标志性人物离世</div>
+        <div><b>16</b>个核心词汇</div>
+        <div><b>1</b>份阅读提示：<br><span style="color:var(--muted)">请分清梗与现实</span></div>
+      </div>
+
+      <div class="scroll-hint"><i></i>向下滚动</div>
+    </div>
+  </div>
+
+  <!-- ================= 01 是什么 ================= -->
+  <section id="intro">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">01 / 定义</div>
+        <h2>它到底是<em>什么</em></h2>
+        <p class="lead">
+          一句话概括：哲♂学是一群网民围绕特定的旧健身影片素材，长期进行剪辑、配音、再创作，
+          逐步自发形成的一套「梗的语法」。
+        </p>
+      </div>
+
+      <div class="grid g3">
+        <div class="card reveal">
+          <div class="kicker">素材层</div>
+          <h3>从哪来</h3>
+          <p>源头是上世纪九十年代一批健美题材的成人影片。其中的定格动作、夸张表情和台词，
+             被后来的网民当成了可以无限复用的创作原料。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">形式层</div>
+          <h3>怎么玩</h3>
+          <p>主要玩法是音MAD与鬼畜剪辑：把台词切碎、变速、循环、叠加，配上节奏感强的音乐，
+             做出与原素材完全不同的喜剧效果。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">符号层</div>
+          <h3>留下了什么</h3>
+          <p>最终沉淀成一套符号系统：<b>♂</b> 记号、被塞进词中间的「啊」、
+             以及「兄贵」「新日暮里」这类只有圈内人才懂的词汇。</p>
+        </div>
+      </div>
+
+      <p class="para reveal" style="margin-top:30px">
+        需要先说清楚的一点：这里说的「homo 文化」是中文互联网的玩梗语境，
+        <b style="color:var(--ink)">并不是指现实中的性少数群体文化</b>。
+        前者是一段网络亚文化史，后者是真实存在的人群与社会议题，两者没有任何从属关系，
+        用法上也应当分开。
+      </p>
+    </div>
+  </section>
+
+  <div class="divider-sym">♂ ♂ ♂</div>
+
+  <!-- ================= 02 起源 ================= -->
+  <section id="origin" class="alt">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">02 / 溯源</div>
+        <h2>一条<em>时间线</em></h2>
+        <p class="lead">年份为大致分期，不同圈子的记忆节点略有出入。</p>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-year">1990s</div>
+          <h3>素材期</h3>
+          <p>健美运动员出身的比利·海灵顿等人拍摄了一批健身与成人题材影片。
+             当时没有人能预料到，这些画面会在十多年后成为地球另一端的一门「学问」。</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">2007 – 2008</div>
+          <h3>日本弹幕站的萌芽</h3>
+          <p>Niconico 上开始有用户搬运并剪辑这些影片，配上猎奇音效与字幕。
+             角色被统称为「兄貴」，后来这套玩梗体系逐渐被冠上「哲学」之名。</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">2009 – 2011</div>
+          <h3>世界观成形</h3>
+          <p>圈内开始给这些角色建构虚构设定，「新日暮里」等名词出现，
+             音MAD创作量上升，一套自洽的次文化宇宙初具规模。</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">2010 – 2013</div>
+          <h3>传入中文互联网</h3>
+          <p>经搬运与二次创作进入中文视频站，弹幕文化提供了最好的土壤。
+             比利·海灵顿在中文圈被尊称为「比利王」，鬼畜区成为主要阵地。</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">2013 – 2017</div>
+          <h3>高峰期</h3>
+          <p>成为中文互联网鬼畜文化的代表符号之一。「啊」式语气、♂ 记号
+             大量溢出到日常聊天与评论中，进入泛化玩梗阶段。</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">2018</div>
+          <h3>转折点</h3>
+          <p>比利·海灵顿因车祸去世。中文圈出现大规模的悼念，
+             整个文化的基调从纯粹的调侃，转向了带怀旧色彩的纪念。</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-year">2019 之后</div>
+          <h3>退潮</h3>
+          <p>平台内容治理趋严、原素材大量下架、鬼畜区生态变化，
+             新作品产出显著减少。它逐渐从「一种文化」变成了「一代人的记忆梗」。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 03 人物 ================= -->
+  <section id="people">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">03 / 面孔</div>
+        <h2>被玩梗的<em>真人</em></h2>
+        <p class="lead">
+          一个容易被忽略的事实是：这些人绝大多数从未参与、也从未知情这段网络历史。
+          他们是被素材化的普通人，而不是什么「角色」。
+        </p>
+      </div>
+
+      <div class="grid g3">
+        <div class="person reveal">
+          <div class="role">核心素材提供者</div>
+          <h3>比利·海灵顿</h3>
+          <p>美国健美运动员与演员，整套文化最重要的画面来源。
+             在中文圈被尊称为「比利王」，是这一亚文化公认的象征人物。</p>
+          <div class="life">1969 – 2018</div>
+        </div>
+        <div class="person reveal">
+          <div class="role">另一大素材来源</div>
+          <h3>范·达克霍姆</h3>
+          <p>演员、导演与摄影师，其后来的创作身份远比素材本身丰富。
+             同样在中文圈拥有固定的称呼与玩梗体系。</p>
+          <div class="life">活跃于 1990s – 2010s</div>
+        </div>
+        <div class="person reveal">
+          <div class="role">群像</div>
+          <h3>被剪进作品的其他演员</h3>
+          <p>还有一批健美与健身题材的出演者，只以几秒钟的镜头被反复使用。
+             他们大多不知道自己在另一片大陆上拥有了「名字」。</p>
+          <div class="life">无名 · 但无处不在</div>
+        </div>
+      </div>
+
+      <div class="callout reveal" style="margin-top:22px">
+        <h3>一个基本立场</h3>
+        <p>玩梗的对象应当是「网络素材」这个抽象物，而不是现实中的具体个人。
+           把梗贴到真人身上、追着本人刷、或者拿它去攻击他人，都是越界行为。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-sym">♂ ♂ ♂</div>
+
+  <!-- ================= 04 词典 ================= -->
+  <section id="dict" class="alt">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">04 / 词表</div>
+        <h2>哲 ♂ 学<em>词典</em></h2>
+        <p class="lead">圈内人的暗号。搜一下，或者从头看到尾。</p>
+      </div>
+
+      <div class="glossary-bar reveal">
+        <input id="glossSearch" type="search" placeholder="搜索词条，例如「兄贵」「新日暮里」" aria-label="搜索词条">
+        <div class="count" id="glossCount">共 16 条</div>
+      </div>
+
+      <div class="gloss-grid" id="glossGrid">
+        <dl class="term"><dt>哲 ♂ 学<small>zhé xué</small></dt><dd>这套亚文化在中文互联网上的正式名称，与古希腊哲学无关，是纯然的玩梗命名。</dd></dl>
+        <dl class="term"><dt>homo<small>俗称</small></dt><dd>中文网民对该文化的口语简称。使用时通常带调侃意味，与性取向讨论无关。</dd></dl>
+        <dl class="term"><dt>兄贵<small>あにき</small></dt><dd>源自日语的「兄长」，用来统称影片中健壮的男性出演者，后泛指这一圈层的代表人物。</dd></dl>
+        <dl class="term"><dt>比利王<small>Billy Herrington</small></dt><dd>对比利·海灵顿的尊称。2018 年他去世后，这个称呼带上了明显的纪念意味。</dd></dl>
+        <dl class="term"><dt>Van 样<small>Van Darkholme</small></dt><dd>对范·达克霍姆的固定称呼，另一条独立成体系的玩梗支线。</dd></dl>
+        <dl class="term"><dt>新日暮里<small>ニッポリ</small></dt><dd>粉丝构想出来的虚构世界，被当作这些素材角色的「故乡」，类似同人设定集。</dd></dl>
+        <dl class="term"><dt>♂<small>符号</small></dt><dd>该文化最具辨识度的视觉标记。常被插进词中间（如「哲♂学」），起分隔与强调作用，并没有严格语义。</dd></dl>
+        <dl class="term"><dt>啊 ♂<small>拟声</small></dt><dd>最有代表性的拟声台词，几乎可以塞进任何句子当语气词，是该文化破圈最广的部分。</dd></dl>
+        <dl class="term"><dt>鬼畜<small>中文视频站术语</small></dt><dd>指高密度剪辑、素材反复循环的喜剧类二创。是这类梗在中文互联网的主要载体。</dd></dl>
+        <dl class="term"><dt>音 MAD<small>音系二创</small></dt><dd>用素材中的人声、音效重新编排成音乐的创作形式，讲究节奏与调音的精度。</dd></dl>
+        <dl class="term"><dt>万恶之源<small>圈内戏称</small></dt><dd>对梗的原始素材视频的昵称，暗示「一切由此开始」。</dd></dl>
+        <dl class="term"><dt>素材复用<small>创作手法</small></dt><dd>同一帧画面被几百个作品反复使用的手法。判断一个梗是否「成立」，往往看它能否被无限复用。</dd></dl>
+        <dl class="term"><dt>淫梦<small>相邻文化</small></dt><dd>另一支来自日本的网络梗文化，时间与形式相近，但素材与社区都不同，常被圈外人混为一谈。</dd></dl>
+        <dl class="term"><dt>破圈<small>传播术语</small></dt><dd>指小众圈子的梗扩散到大众视野。哲♂学的破圈主要以「啊」的形式完成，代价是原初语境全部丢失。</dd></dl>
+        <dl class="term"><dt>退坑<small>社区术语</small></dt><dd>创作者因素材下架、平台规则或年龄增长而离开。2019 年后成为该社区的常态。</dd></dl>
+        <dl class="term"><dt>考古<small>当代用法</small></dt><dd>指翻看十多年前的老作品。如今多数人提到这套文化时，实际做的是这件事。</dd></dl>
+      </div>
+      <div class="empty-tip" id="glossEmpty">没有匹配的词条，换个关键词试试。</div>
+    </div>
+  </section>
+
+  <!-- ================= 05 名场面 ================= -->
+  <section id="lines">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">05 / 名场面</div>
+        <h2>被反复循环的<em>那几句</em></h2>
+        <p class="lead">
+          这些台词本身平平无奇，是被剪辑、变速与重复之后，才获得了远超原意的生命力。
+        </p>
+      </div>
+
+      <div class="quotes">
+        <div class="quote reveal">
+          <div class="en">Thank you, sir</div>
+          <div class="cn">谢谢您，先生。</div>
+          <div class="use">用法：一般用于完成某件事之后的自我调侃式谢幕。</div>
+        </div>
+        <div class="quote reveal">
+          <div class="en">Oh, my shoulder</div>
+          <div class="cn">哦，我的肩膀。</div>
+          <div class="use">用法：原本只是动作中的一句抱怨，被剪成节奏点后成了标志性音效。</div>
+        </div>
+        <div class="quote reveal">
+          <div class="en">Deep dark fantasy</div>
+          <div class="cn">深邃幽暗的幻想。</div>
+          <div class="use">用法：因为句式和发音都太戏剧化，被当作万能的标题与开场白。</div>
+        </div>
+        <div class="quote reveal">
+          <div class="en">Ah—— ♂</div>
+          <div class="cn">拖长音的拟声。</div>
+          <div class="use">用法：破圈程度最高的一条。很多人用过它，却不知道它从哪来。</div>
+        </div>
+      </div>
+
+      <div class="gen reveal">
+        <div class="gen-row">
+          <button class="btn" id="genBtn" type="button">生成一句哲 ♂ 学</button>
+          <button class="btn ghost" id="genCopy" type="button">复制</button>
+        </div>
+        <div class="gen-out" id="genOut">♂ 准备好了吗</div>
+        <div class="gen-tip" id="genTip">纯属文字排列组合，与任何真人无关。</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-sym">♂ ♂ ♂</div>
+
+  <!-- ================= 06 传播 ================= -->
+  <section id="spread" class="alt">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">06 / 传播</div>
+        <h2>一个梗是<em>怎么长大的</em></h2>
+        <p class="lead">
+          从原始影片到日常聊天里的一个符号，中间经过了四道工序。
+          每一步都在丢掉一部分原意，又加上一层新的意思。
+        </p>
+      </div>
+
+      <div class="flow">
+        <div class="step reveal"><span>STEP 01</span><h3>素材</h3><p>原始影片中的画面与台词被人单独截取出来，脱离原本的语境。</p></div>
+        <div class="step reveal"><span>STEP 02</span><h3>二创</h3><p>音MAD 与鬼畜作者重新编排节奏，把素材变成作品，这是最关键的增值环节。</p></div>
+        <div class="step reveal"><span>STEP 03</span><h3>社区</h3><p>弹幕和评论把作品变成集体行为，观众用同一套词汇互相确认身份。</p></div>
+        <div class="step reveal"><span>STEP 04</span><h3>破圈</h3><p>最简化的那部分符号（一个 ♂、一声「啊」）脱离作品单独流传，进入大众语汇。</p></div>
+      </div>
+
+      <div class="split reveal" style="margin-top:36px">
+        <div>
+          <h3 style="font-size:20px;margin-bottom:14px">为什么偏偏是它</h3>
+          <ul class="list">
+            <li><b>素材足够夸张。</b>健美姿势、表情与语气都处于日常之外，天然适合被剪辑放大。</li>
+            <li><b>素材足够短。</b>一个三秒镜头就能自成一个梗，创作门槛极低。</li>
+            <li><b>平台给了场地。</b>弹幕站把观看变成集体活动，梗的传播速度远高于传统论坛。</li>
+            <li><b>技术给了工具。</b>2000 年代末剪辑软件普及，让个人也能完成过去需要团队的工作。</li>
+            <li><b>它足够无意义。</b>正因为不承载严肃议题，它才能在任何场合被安全地引用。</li>
+          </ul>
+        </div>
+        <div class="callout">
+          <h3>代价是什么</h3>
+          <p>它长大得越成功，离源头就越远。今天绝大多数使用「啊 ♂」的人，
+             既不知道它出自哪部影片，也不知道相关真人的经历。</p>
+          <p>这是一切网络梗的共同命运：<b>传播越广，语境越薄</b>。
+             而一旦语境薄到只剩符号，它的生命力也就只剩下惯性了。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 07 现状 ================= -->
+  <section id="now">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">07 / 现状</div>
+        <h2>它现在<em>还剩下什么</em></h2>
+      </div>
+
+      <div class="grid g2">
+        <div class="card reveal">
+          <div class="kicker">作为创作社区</div>
+          <h3>基本退潮</h3>
+          <p>原素材大量下架，平台规则收紧，主力创作者陆续离开。
+             新作品产出已不足以维持一个活跃社区的运转，
+             剩下的多是老作品的重看与整理。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">作为语言遗产</div>
+          <h3>仍在流通</h3>
+          <p>「啊」式语气、♂ 记号、以及那股一本正经胡说八道的语气，
+             已经被拆解成通用零件，脱离了原始社区，在日常聊天里继续被使用。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">作为集体记忆</div>
+          <h3>怀旧对象</h3>
+          <p>对 2010 年代活跃于中文视频站的那批人来说，
+             它标记了一段具体的上网时光。相关内容的评论区，
+             如今更接近留言簿而不是创作区。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">作为研究对象</div>
+          <h3>亚文化样本</h3>
+          <p>它常被拿来讨论网络迷因的生成机制、跨语种传播路径，
+             以及一个社区在失去核心素材之后会如何解体。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-sym">♂ ♂ ♂</div>
+
+  <!-- ================= 08 边界 ================= -->
+  <section id="rules" class="alt">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div class="sec-no">08 / 边界</div>
+        <h2>玩梗的<em>几条底线</em></h2>
+        <p class="lead">一个能长期存在的亚文化，靠的不只是笑点，还有分寸。</p>
+      </div>
+
+      <div class="grid g2">
+        <div class="card reveal">
+          <div class="kicker">对象</div>
+          <h3>梗对着素材，不对着人</h3>
+          <p>不要跑去相关人员的社交账号下刷梗，也不要把梗贴到无关的真人身上。
+             他们是被素材化的普通人，不是角色扮演的道具。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">性取向</div>
+          <h3>不要拿它当侮辱词</h3>
+          <p>这套文化与现实中的性少数群体无关。用「homo」去指代或取笑任何现实中的人，
+             既伤害他人，也误解了这个梗本身。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">逝者</div>
+          <h3>纪念比调侃更重要</h3>
+          <p>2018 年之后，中文圈对待比利·海灵顿本人普遍转向尊重与悼念。
+             这条默契值得继续保持。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">内容</div>
+          <h3>不分发原始影片</h3>
+          <p>原始素材属于成人内容。本页只讨论其作为素材的文化史，
+             不提供、不引导任何人去获取这些影片。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">场合</div>
+          <h3>分清语境</h3>
+          <p>和朋友开玩笑与在公开评论区刷屏是两回事。
+             在不熟悉这套梗的场合，它只会被理解成莫名其妙的噪音。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker">平台</div>
+          <h3>遵守所在社区规则</h3>
+          <p>多数平台对此类内容有明确限制。规则不因梗的知名度而放宽。</p>
+        </div>
+      </div>
+
+      <div class="callout reveal" style="margin-top:24px">
+        <h3>最后一句</h3>
+        <p>一门「学问」最体面的结局，不是被无限复制，而是被准确记住。
+           如果你今天第一次知道它从哪来，那它就已经比昨天被记得更完整一点了。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">哲 ♂ 学<span>图鉴</span></div>
+        <p>一份关于中文互联网亚文化的单页面科普。
+           内容依据公开可查的网络文化史料整理，年份与细节采用常见说法，
+           不同社区的记忆版本可能存在差异。</p>
+        <p>相关页面：<a href="guichu-culture.html" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(216,168,68,.4)">鬼畜亚文化图鉴</a></p>
+      </div>
+      <div style="text-align:right;font-size:12.5px;line-height:2">
+        单页站点 · 无外部依赖<br>
+        建议在桌面与手机浏览器中查看
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" type="button" aria-label="回到顶部">↑</button>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------- 滚动出现 ---------- */
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add("in"); });
+  }
+
+  /* ---------- 目录高亮 ---------- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll("#navLinks a"));
+  var toTop = document.getElementById("toTop");
+  var sections = navLinks
+    .map(function (a) { return document.querySelector(a.getAttribute("href")); })
+    .filter(function (el) { return !!el; });
+
+  function syncNav() {
+    var pos = window.scrollY + 140;
+    var current = null;
+    sections.forEach(function (sec) {
+      if (sec.offsetTop <= pos) { current = sec.id; }
+    });
+    navLinks.forEach(function (a) {
+      a.classList.toggle("active", a.getAttribute("href") === "#" + current);
+    });
+  }
+
+  var ticking = false;
+  function onScroll() {
+    if (ticking) { return; }
+    ticking = true;
+    window.requestAnimationFrame(function () {
+      syncNav();
+      toTop.classList.toggle("show", window.scrollY > 620);
+      ticking = false;
+    });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  syncNav();
+
+  /* ---------- 回到顶部 ---------- */
+  toTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  /* ---------- 词条搜索 ---------- */
+  var search = document.getElementById("glossSearch");
+  var terms = Array.prototype.slice.call(document.querySelectorAll("#glossGrid .term"));
+  var countEl = document.getElementById("glossCount");
+  var emptyEl = document.getElementById("glossEmpty");
+
+  function filterTerms() {
+    var q = search.value.trim().toLowerCase();
+    var shown = 0;
+    terms.forEach(function (t) {
+      var hit = q === "" || t.textContent.toLowerCase().indexOf(q) !== -1;
+      t.classList.toggle("hide", !hit);
+      if (hit) { shown++; }
+    });
+    countEl.textContent = q === "" ? "共 " + terms.length + " 条" : "匹配 " + shown + " / " + terms.length + " 条";
+    emptyEl.classList.toggle("show", shown === 0);
+  }
+  search.addEventListener("input", filterTerms);
+
+  /* ---------- 台词生成器 ---------- */
+  var heads = ["深邃幽暗的", "不可名状的", "令人敬畏的", "纯粹的", "至高无上的", "充满力量的"];
+  var mids = ["幻想", "瞬间", "问答", "友谊", "画面感", "气息"];
+  var tails = [
+    "。啊 ♂",
+    "。这就是哲 ♂ 学的味道。",
+    "。谢谢您，先生 ♂",
+    "。哦，我的肩膀 ♂",
+    "。让我们开始吧 ♂",
+    "。深度，是需要慢慢体会的。"
+  ];
+  var genOut = document.getElementById("genOut");
+  var genTip = document.getElementById("genTip");
+  var lastIndex = -1;
+
+  function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+  document.getElementById("genBtn").addEventListener("click", function () {
+    var idx = 0;
+    do {
+      idx = Math.floor(Math.random() * (heads.length * mids.length * tails.length));
+    } while (idx === lastIndex && heads.length * mids.length * tails.length > 1);
+    lastIndex = idx;
+
+    var tailIdx = idx % tails.length;
+    var midIdx = Math.floor(idx / tails.length) % mids.length;
+    var headIdx = Math.floor(idx / (tails.length * mids.length)) % heads.length;
+
+    genOut.textContent = heads[headIdx] + mids[midIdx] + tails[tailIdx];
+  });
+
+  document.getElementById("genCopy").addEventListener("click", function () {
+    var text = genOut.textContent;
+    function done() { genTip.textContent = "已复制到剪贴板。"; }
+    function fail() { genTip.textContent = "复制失败，手动选中文本即可。"; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fail);
+    } else {
+      fail();
+    }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "复制网页标题和链接",
+  "version": "1.1",
+  "description": "点击插件图标，自动把当前网页的标题和链接复制到剪贴板。",
+  "permissions": ["activeTab"],
+  "action": {
+    "default_title": "复制当前网页的标题和链接",
+    "default_popup": "popup.html"
+  }
+}

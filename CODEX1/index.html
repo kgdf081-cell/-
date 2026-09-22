@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>亚文化图鉴 —— 鬼畜 · 哲♂学</title>
+<meta name="description" content="两份关于中文互联网亚文化的单页面图鉴：鬼畜剪辑文化与哲♂学 / homo 文化。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0f15'/%3E%3Ccircle cx='30' cy='34' r='13' fill='none' stroke='%232fd0f0' stroke-width='5'/%3E%3Cpath d='M39 25 L52 12 M40 12 h12 v12' stroke='%23ff4d7d' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta property="og:title" content="亚文化图鉴 —— 鬼畜 · 哲♂学">
+<meta property="og:description" content="两份关于中文互联网亚文化的单页面图鉴。">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --bg:#090c11;
+    --panel:#121821;
+    --panel-2:#182130;
+    --line:#243040;
+    --ink:#e9eef5;
+    --ink-2:#a9b6c4;
+    --muted:#7c899a;
+    --cyan:#2fd0f0;
+    --pink:#ff4d7d;
+    --warm:#d8a844;
+    --red:#c8392f;
+    --maxw:1000px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Source Han Sans SC","Noto Sans SC",system-ui,-apple-system,"Segoe UI",sans-serif;
+    line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+    min-height:100vh;display:flex;flex-direction:column;
+  }
+  a{color:inherit}
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  main{flex:1}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:80px 0 26px;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:-40% -12% auto -12%;height:130%;pointer-events:none;
+    background:
+      radial-gradient(44% 46% at 22% 34%,rgba(47,208,240,.22),transparent 64%),
+      radial-gradient(40% 42% at 78% 26%,rgba(200,57,47,.20),transparent 66%),
+      radial-gradient(38% 40% at 52% 88%,rgba(255,77,125,.12),transparent 68%);
+    filter:blur(10px);
+  }
+  .hero .wrap{position:relative}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.2em;
+    color:var(--cyan);border:1px solid rgba(47,208,240,.32);padding:5px 13px;
+    border-radius:999px;margin-bottom:24px;
+  }
+  .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pink)}
+  h1{
+    font-size:clamp(38px,8.2vw,72px);line-height:1.02;margin:0 0 18px;font-weight:800;letter-spacing:.04em;
+    background:linear-gradient(120deg,#ffffff 0%,#a9ecfb 42%,#ffb0c6 78%,#e6c079 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-sub{font-size:clamp(15px,2.3vw,17.5px);color:var(--ink-2);max-width:620px;margin:0}
+
+  /* ---------- cards ---------- */
+  .cards{
+    display:grid;grid-template-columns:1fr 1fr;gap:20px;
+    padding:44px 0 20px;
+  }
+  .entry{
+    display:flex;flex-direction:column;
+    background:linear-gradient(160deg,var(--panel-2),var(--panel));
+    border:1px solid var(--line);border-radius:18px;padding:28px;
+    text-decoration:none;position:relative;overflow:hidden;
+    transition:transform .22s ease,border-color .22s ease;
+  }
+  .entry::after{
+    content:"";position:absolute;left:0;top:0;height:100%;width:3px;
+  }
+  .entry.guichu{--accent:var(--cyan)}
+  .entry.philo{--accent:var(--red)}
+  .entry::after{background:linear-gradient(180deg,var(--accent),transparent)}
+  .entry:hover{transform:translateY(-4px);border-color:var(--accent)}
+  .entry:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+  .entry .idx{
+    font-size:11.5px;letter-spacing:.22em;color:var(--muted);
+    font-variant-numeric:tabular-nums;margin-bottom:14px;
+  }
+  .entry .thumb{
+    display:block;width:100%;height:auto;margin-bottom:20px;
+    border:1px solid var(--line);border-radius:12px;background:#0d1219;
+  }
+  .entry h2{
+    font-size:clamp(26px,4.6vw,36px);margin:0 0 10px;font-weight:800;letter-spacing:.03em;line-height:1.1;
+  }
+  .entry.guichu h2{color:var(--cyan)}
+  .entry.philo h2{color:#ff6b5e}
+  .entry p{margin:0;color:var(--ink-2);font-size:14.5px}
+  .entry .tags{display:flex;flex-wrap:wrap;gap:7px;margin:20px 0 0}
+  .entry .tags span{
+    font-size:12px;color:var(--ink-2);border:1px solid var(--line);
+    border-radius:999px;padding:4px 11px;background:rgba(255,255,255,.02);
+  }
+  .entry .go{
+    margin-top:auto;padding-top:24px;font-size:14px;color:var(--accent);
+    display:flex;align-items:center;gap:8px;font-weight:600;
+  }
+  .entry .go i{
+    display:block;width:22px;height:1px;background:var(--accent);
+    transition:width .22s ease;
+  }
+  .entry:hover .go i{width:38px}
+
+  /* ---------- note ---------- */
+  .note{
+    margin:14px 0 0;border:1px solid var(--line);border-radius:14px;
+    background:rgba(255,255,255,.018);padding:20px 22px;
+  }
+  .note h3{margin:0 0 8px;font-size:15px;font-weight:600}
+  .note p{margin:0;font-size:13.5px;color:var(--muted);max-width:760px}
+  .note code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:12.5px;color:var(--cyan);background:rgba(47,208,240,.09);
+    border-radius:5px;padding:1px 6px;
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid var(--line);background:#070a0e;margin-top:56px;
+    padding:26px 0;color:var(--muted);font-size:12.5px;
+  }
+  .foot-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+  .foot-brand{font-weight:800;letter-spacing:.06em;color:var(--ink);font-size:14px}
+  .foot-brand span{color:var(--cyan)}
+
+  @media (max-width:760px){
+    .cards{grid-template-columns:1fr;gap:16px}
+    .hero{padding:60px 0 20px}
+    .wrap{padding:0 18px}
+    .entry{padding:22px}
+    .foot-row{display:block}
+    .foot-row div + div{margin-top:8px}
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Static Site · 2 Pages · No Dependencies</div>
+      <h1>亚文化图鉴</h1>
+      <p class="hero-sub">
+        两份单页面，讲两种中文互联网亚文化是怎么长出来的、怎么玩的，
+        以及它们最后为什么会慢慢退潮。
+      </p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="cards">
+
+      <a class="entry guichu" href="guichu-culture.html">
+        <svg class="thumb" viewBox="0 0 400 110" aria-hidden="true">
+          <defs>
+            <pattern id="tg1" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M20 0V20M0 20H20" fill="none" stroke="#161f2b" stroke-width="1"/>
+            </pattern>
+            <linearGradient id="tgc" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#2fd0f0" stop-opacity=".45"/>
+              <stop offset="1" stop-color="#2fd0f0" stop-opacity=".12"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="110" fill="#0d1219"/>
+          <rect width="400" height="110" fill="url(#tg1)"/>
+          <g fill="url(#tgc)">
+            <rect x="20"  y="30" width="60" height="22" rx="4"/>
+            <rect x="80"  y="30" width="40" height="22" rx="4"/>
+            <rect x="120" y="30" width="80" height="22" rx="4"/>
+            <rect x="200" y="30" width="20" height="22" rx="4" fill="#ff4d7d" opacity=".5"/>
+            <rect x="220" y="30" width="60" height="22" rx="4"/>
+            <rect x="280" y="30" width="100" height="22" rx="4"/>
+          </g>
+          <path d="M23 76V92M43 68V100M63 80V88M83 62V106M103 74V94M123 66V102M143 78V90M163 60V108M183 72V96M203 64V104M223 80V88M243 68V100M263 76V92M283 62V106M303 74V94M323 66V102M343 78V90M363 70V98M383 74V94"
+                fill="none" stroke="#2fd0f0" stroke-width="4" stroke-linecap="round" opacity=".45"/>
+          <line x1="200" y1="8" x2="200" y2="108" stroke="#ff4d7d" stroke-width="1.5" opacity=".8"/>
+          <polygon points="200,4 195,13 205,13" fill="#ff4d7d"/>
+        </svg>
+        <div class="idx">ENTRY 01 · 11 SECTIONS</div>
+        <h2>鬼畜</h2>
+        <p>一种把真人影像拆成零件、再按节拍重新拼回去的创作类型。
+           中文互联网规模最大的二创亚文化之一。</p>
+        <div class="tags">
+          <span>二十年时间线</span>
+          <span>7 种技法</span>
+          <span>18 条行话</span>
+          <span>加速模拟器</span>
+        </div>
+        <div class="go"><i></i>进入阅读</div>
+      </a>
+
+      <a class="entry philo" href="homo-culture.html">
+        <svg class="thumb" viewBox="0 0 400 110" aria-hidden="true">
+          <defs>
+            <radialGradient id="tg2" cx=".5" cy=".5" r=".5">
+              <stop offset="0" stop-color="#c8392f" stop-opacity=".4"/>
+              <stop offset="1" stop-color="#c8392f" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="tgg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f0cd7a"/>
+              <stop offset="1" stop-color="#b8862c"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="110" fill="#0f0f13"/>
+          <ellipse cx="200" cy="62" rx="180" ry="58" fill="url(#tg2)"/>
+          <rect x="120" y="90" width="80" height="6" rx="2" fill="#1a1a22" stroke="#2b2b36"/>
+          <rect x="130" y="26" width="60" height="64" fill="#14141a" stroke="#2b2b36"/>
+          <g stroke="#2b2b36" stroke-width="1">
+            <line x1="145" y1="30" x2="145" y2="86"/>
+            <line x1="160" y1="30" x2="160" y2="86"/>
+            <line x1="175" y1="30" x2="175" y2="86"/>
+          </g>
+          <rect x="126" y="20" width="68" height="7" rx="2" fill="#1c1c24" stroke="url(#tgg)"/>
+          <circle cx="264" cy="60" r="19" fill="none" stroke="url(#tgg)" stroke-width="4"/>
+          <line x1="277" y1="47" x2="304" y2="20" stroke="url(#tgg)" stroke-width="4" stroke-linecap="round"/>
+          <polygon points="308,16 296,20 304,28" fill="url(#tgg)"/>
+          <text x="330" y="96" font-size="20" fill="#d8a844" opacity=".2">♂</text>
+        </svg>
+        <div class="idx">ENTRY 02 · 8 SECTIONS</div>
+        <h2>哲 ♂ 学</h2>
+        <p>被称作「homo 文化」的那套网络符号系统。
+           它完整走过了萌芽、高峰、转折与退潮的全程。</p>
+        <div class="tags">
+          <span>溯源时间线</span>
+          <span>16 条词汇</span>
+          <span>名场面</span>
+          <span>台词生成器</span>
+        </div>
+        <div class="go"><i></i>进入阅读</div>
+      </a>
+
+    </div>
+
+    <div class="note">
+      <h3>关于这个站点</h3>
+      <p>
+        三个纯静态 HTML 文件，没有任何外部依赖、脚本库或字体请求，也不需要后端。
+        双击 <code>index.html</code> 就能在本地浏览，也可以整个文件夹直接丢到任意静态托管上发布。
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <div class="foot-brand">亚文化<span>图鉴</span></div>
+      <div>内容依据公开可查的网络文化史料整理 · 不包含任何影像素材</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

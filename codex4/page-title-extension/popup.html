@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>复制网页标题和链接</title>
+    <style>
+      body {
+        width: 180px;
+        margin: 0;
+        padding: 16px;
+        font-family: "Microsoft YaHei", system-ui, sans-serif;
+        font-size: 14px;
+        color: #1f1f1f;
+        background: #ffffff;
+        text-align: center;
+      }
+
+      #status {
+        line-height: 1.5;
+        word-break: break-word;
+      }
+
+      /* 复制成功时显示绿色加粗的「已复制」 */
+      #status.ok {
+        color: #1a7f37;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      /* 出错时用红色小字说明原因 */
+      #status.error {
+        color: #b42318;
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="status">正在复制…</div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
